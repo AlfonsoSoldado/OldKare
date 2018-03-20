@@ -22,12 +22,12 @@ class OldKareListView(LoginRequiredMixin, ListView):
     def get_queryset(self, *arg, **kwargs):
         return Service.objects.filter(author=self.request.user)
 
-class OldKareAllListView(LoginRequiredMixin, ListView):
+class OldKareAllListView(ListView):
     template_name = 'principal/OldKare.html'
     model = Service
     context_object_name = 'services'
 
-class ServiceDetailView(LoginRequiredMixin, DetailView):
+class ServiceDetailView(DetailView):
     template_name = 'principal/details.html'
     model = Service
     context_object_name = 'service'

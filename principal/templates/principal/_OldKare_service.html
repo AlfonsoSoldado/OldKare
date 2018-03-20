@@ -6,5 +6,7 @@
   <h4>{{ service.price }}</h4>
   <h4>{{ service.avaliability }}</h4>
   <button onclick="window.location='{% url 'details' pk=service.id %}'" class="btn btn-primary">Ver detalles</button>
+  {% if request.user.is_authenticated%}
   <button data-id="{{ service.id }}" onclick="deleteOldKareService(this)" class="btn btn-danger">Borrar</button>
+  {% endif %}
 </div>
