@@ -15,3 +15,16 @@ class Service(models.Model):
 
     def short_description(self):
         return self.description[:15]
+
+class UserDetails(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    birthday = models.DateTimeField()
+    phone = models.CharField(max_length=100)
+    postalAddress = models.CharField(max_length=100)
+    gender = models.CharField(max_length=100)
+    occupation = models.CharField(max_length=100)
+    photo = models.CharField(max_length=100)
+    socialReferences = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.user} {self.date}'

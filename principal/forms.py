@@ -7,13 +7,12 @@ class MyRegistrationForm(UserCreationForm):
     email = forms.EmailField(label = "Email")
     first_name = forms.CharField(label = "Nombre")
     last_name = forms.CharField(label = "Apellidos")
-    birthday = forms.DateField(label = "Fecha de nacimiento")
 
 
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'birthday', 'password1', 'password2')        
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')        
 
     def save(self,commit = True):   
         user = super(MyRegistrationForm, self).save(commit = False)
@@ -21,7 +20,6 @@ class MyRegistrationForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
-        user.birthday = self.cleaned_data['birthday']
 
         if commit:
             user.save()
@@ -34,3 +32,12 @@ class ServiceForm(forms.Form):
     description = forms.CharField(widget=forms.Textarea)
     price = forms.DecimalField(max_digits=20, decimal_places=2)
     avaliability = forms.IntegerField()
+
+class UserDetailsForm(forms.Form):
+    birthday = forms.DateTimeField()
+    phone = forms.CharField(max_length=100)
+    postalAddress = forms.CharField(max_length=100)
+    gender = forms.CharField(max_length=100)
+    occupation = forms.CharField(max_length=100,widget=forms.Textarea)
+    photo = forms.CharField(max_length=100)
+    socialReferences = forms.CharField(widget=forms.Textarea)

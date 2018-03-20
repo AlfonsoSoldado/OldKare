@@ -9,8 +9,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Service
-from .forms import ServiceForm
+from .models import Service, UserDetails
+from .forms import ServiceForm, UserDetailsForm
 
 # Create your views here.
 
@@ -83,12 +83,43 @@ def register_user(request):
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
-            birthday = form.cleaned_data['birthday']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/oldkare')
+            return redirect('/edit-user-details')
 
     else:
         form = MyRegistrationForm()
 
     return render(request, 'registration/signup.html', {'form': form})
+
+@login_required
+def addUserDetails(request):
+
+    if request.method == 'POST':
+        form = UserDetailsForm(request.POST)
+        if form.is_valid():
+            birthday = form.cleaned_data['birthday']
+            phone = form.cleaned_data['phone']
+            postalAddress = form.cleaned_data['postalAddress']
+            gender = form.cleaned_data['gender']
+            occupation = form.cleaned_data['occupation']
+            photo = form.cleaned_data['photo']
+            socialReferences = form.cleaned_data['socialReferences']
+
+            UserDetails.objects.create(
+                user=request.user,
+                birthday=birthday,
+                phone=phone,
+                postalAddress=postalAddress,
+                gender=gender,
+                occupation=occupation,
+                photo=photo,
+                socialReferences=socialReferences
+            ).save()
+
+            return HttpResponseRedirect('/')
+
+    else:
+        form = UserDetailsForm()
+
+    return render(request, 'principal/userDetailsForm.html', {'form': form})
