@@ -19,9 +19,13 @@ class OldKareListView(LoginRequiredMixin, ListView):
     model = Service
     context_object_name = 'services'
 
-    def get_queryset(self, *args, **kwargs):
+    def get_queryset(self, *arg, **kwargs):
         return Service.objects.filter(author=self.request.user)
 
+class OldKareAllListView(LoginRequiredMixin, ListView):
+    template_name = 'principal/OldKare.html'
+    model = Service
+    context_object_name = 'services'
 
 class ServiceDetailView(LoginRequiredMixin, DetailView):
     template_name = 'principal/details.html'
@@ -82,7 +86,7 @@ def register_user(request):
             birthday = form.cleaned_data['birthday']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/OldKare')
+            return redirect('/oldkare')
 
     else:
         form = MyRegistrationForm()
