@@ -21,7 +21,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('OldKare', views.OldKareListView.as_view(), name='OldKare'),
+    path('oldkare', views.OldKareListView.as_view(), name='OldKare'),
+    path('oldkareall', views.OldKareAllListView.as_view(), name='OldKare'),
     path('signup', views.register_user, name='signup'),
     path('login', auth_views.login, name='login'),
     path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),

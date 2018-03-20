@@ -33,9 +33,12 @@
             </li>
             {% if request.user.is_authenticated%}
             <li class="nav-item">
-              <a class="nav-link" href="/OldKare">Mis servicios</a>
+              <a class="nav-link" href="/oldkare">Mis servicios</a>
             </li>
             {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="/oldkareall">Servicios</a>
+            </li>
           </ul>
           {% if request.user.is_authenticated%}
           <span>Hola, {{ request.user.username }}</span>
