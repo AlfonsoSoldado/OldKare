@@ -1,0 +1,25 @@
+{% extends 'principal/base.html' %}
+{% block content %}
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>OldKare</h1>
+      {% if request.user.is_authenticated %}
+        <span>Hello, {{ request.user.username }}</span>
+        <br/>
+        <a href="/logout">Logout</a>
+      {% endif %}
+    </div>
+   <div class="col-lg-8">
+      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">Add Service</button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    {% for service in services %}
+      {% include 'principal/_OldKare_service.html' %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
