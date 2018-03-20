@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from principal import views
 from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
@@ -29,4 +30,5 @@ urlpatterns = [
     path('service/add', views.add, name='add'),
     path('service/delete/<int:pk>', views.delete, name='delete'),
     path('admin/', admin.site.urls),
+    path('sobre-nosotros', TemplateView.as_view(template_name="about-us.html")),
 ]

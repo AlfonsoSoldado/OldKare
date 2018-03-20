@@ -6,13 +6,13 @@
     <div class="col-lg-4">
       <h1>OldKare</h1>
       {% if request.user.is_authenticated %}
-        <span>Hello, {{ request.user.username }}</span>
+        <span>Hola, {{ request.user.username }}</span>
         <br/>
         <a href="/logout">Logout</a>
       {% endif %}
     </div>
    <div class="col-lg-8">
-      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">Add Service</button>
+      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">Añadir servicio</button>
     </div>
   </div>
   <hr />
