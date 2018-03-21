@@ -34,7 +34,7 @@ class ServiceForm(forms.Form):
     price = forms.DecimalField(max_digits=20, decimal_places=2)
     avaliability = forms.IntegerField()
 
-class UserDetailsForm(forms.Form):
+class UserDetailsForm(forms.ModelForm):
     birthday = forms.DateTimeField()
     phone = forms.CharField(max_length=100)
     postalAddress = forms.CharField(max_length=100)
@@ -45,3 +45,4 @@ class UserDetailsForm(forms.Form):
 
     class Meta:
         model = UserDetails
+        fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences') 

@@ -33,7 +33,6 @@ class ServiceDetailView(DetailView):
     model = Service
     context_object_name = 'service'
 
-@login_required
 class userView(DetailView):
     template_name = 'principal/userDetailsView.html'
     model = UserDetails
@@ -135,8 +134,11 @@ def addUserDetails(request):
 @login_required
 def updateUserDetails(request, id):
     userdetails = UserDetails.objects.get(id=id)
-    form = UserDetailsForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('/')
+    if request.method == "POST":
+        form = UserDetailsForm(request.POST, instance=userdetails)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = UserDetailsForm(instance=userdetails)
     return render(request, 'principal/userDetailsForm.html', {'form': form})
