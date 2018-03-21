@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
     date = models.DateTimeField()
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
@@ -17,7 +17,7 @@ class Service(models.Model):
         return self.description[:15]
 
 class UserDetails(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthday = models.DateTimeField()
     phone = models.CharField(max_length=100)
     postalAddress = models.CharField(max_length=100)
@@ -27,4 +27,4 @@ class UserDetails(models.Model):
     socialReferences = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'{self.user} {self.date}'
+        return f'{self.user.username}'

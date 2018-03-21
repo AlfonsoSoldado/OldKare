@@ -11,6 +11,7 @@ from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Service, UserDetails
 from .forms import ServiceForm, UserDetailsForm
+from django.db.models import F
 
 # Create your views here.
 
@@ -31,6 +32,12 @@ class ServiceDetailView(DetailView):
     template_name = 'principal/details.html'
     model = Service
     context_object_name = 'service'
+
+@login_required
+class userView(DetailView):
+    template_name = 'principal/userDetailsView.html'
+    model = UserDetails
+    context_object_name = 'userDetails'
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
@@ -121,5 +128,24 @@ def addUserDetails(request):
 
     else:
         form = UserDetailsForm()
+
+    return render(request, 'principal/userDetailsForm.html', {'form': form})
+
+
+@login_required
+def updateUserDetails(request, ud_id=None):
+    if ud_id:
+        instance = UserDetails.objects.get(pk=ud_id)
+    else:
+        instance = None
+    if request.method == 'POST':
+        form = UserDetailsForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/')
+
+    else:
+        form = UserDetailsForm(instance=instance)
 
     return render(request, 'principal/userDetailsForm.html', {'form': form})
