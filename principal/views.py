@@ -12,6 +12,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from .models import Service, UserDetails
 from .forms import ServiceForm, UserDetailsForm
 from django.db.models import F
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -141,4 +142,13 @@ def updateUserDetails(request, id):
             return HttpResponseRedirect('/')
     else:
         form = UserDetailsForm(instance=userdetails)
-    return render(request, 'principal/userDetailsForm.html', {'form': form})
+        args = {'form': form}
+    return render(request, 'principal/userDetailsForm.html', args)
+
+def view_profile(request, id=None):
+    if id:
+        user = UserDetails.objects.get(id=id)
+    else:
+        user = request.user
+    args = {'user': user}
+    return render(request, 'principal/userDetailsView.html', args)

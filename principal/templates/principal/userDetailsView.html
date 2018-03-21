@@ -1,16 +1,14 @@
 {% extends 'principal/base.html' %}{% block content %}
 <div class="container-fluid"></div>
 <div class="details">
-  <button onclick="window.location='{% url '/' %}'" class="btn btn-default">Volver</button>
   <hr />
-  <h1>{{ userDetails.birthday }}</h1>
+  <h1>{{ principal_userdetails.birthday }}</h1>
   <hr />
-  <h5>{{ userDetails.phone }}</h5>
-  <p>{{ userDetails.postalAddress }}</p>
-  <p>{{ userDetails.gender }}</p>
-  <p>{{ userDetails.occupation }}</p>
-  <p>{{ userDetails.photo }}</p>
-  <p>{{ userDetails.socialReferences }}</p>
-  <button onclick="window.location='{% url 'updateUserDetails' pk=userDetails.id %}'" class="btn btn-primary">Ver detalles</button>
+  <h5>{{ userdetails.phone }}</h5>
+  <p>{{ userdetails.postalAddress }}</p>
+  <p>{{ userdetails.gender }}</p>
+  <p>{{ userdetails.occupation }}</p>
+  <p>{{ userdetails.photo }}</p>
+  <p>{{ userdetails.socialReferences }}</p>
 </div>
 {% endblock %}
