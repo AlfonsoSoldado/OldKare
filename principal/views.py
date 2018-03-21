@@ -133,19 +133,10 @@ def addUserDetails(request):
 
 
 @login_required
-def updateUserDetails(request, ud_id=None):
-    if ud_id:
-        instance = UserDetails.objects.get(pk=ud_id)
-    else:
-        instance = None
-    if request.method == 'POST':
-        form = UserDetailsForm(request.POST, request.FILES, instance=instance)
-        if form.is_valid():
-            form.save()
-
-            return HttpResponseRedirect('/')
-
-    else:
-        form = UserDetailsForm(instance=instance)
-
+def updateUserDetails(request, id):
+    userdetails = UserDetails.objects.get(id=id)
+    form = UserDetailsForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/')
     return render(request, 'principal/userDetailsForm.html', {'form': form})

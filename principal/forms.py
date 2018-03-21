@@ -1,6 +1,7 @@
 from django import forms            
 from django.contrib.auth.models import User   # fill in custom user info then save it 
 from django.contrib.auth.forms import UserCreationForm 
+from .models import UserDetails
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -41,3 +42,6 @@ class UserDetailsForm(forms.Form):
     occupation = forms.CharField(max_length=100,widget=forms.Textarea)
     photo = forms.CharField(max_length=100)
     socialReferences = forms.CharField(widget=forms.Textarea)
+
+    class Meta:
+        model = UserDetails
