@@ -38,6 +38,7 @@ class userView(UpdateView):
     template_name = 'principal/userDetailsForm.html'
     model = UserDetails
     fields = ['birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences']
+    
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
