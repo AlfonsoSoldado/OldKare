@@ -10,6 +10,6 @@
   <p>{{ service.price }}</p>
   <p>{{ service.avaliability }}</p>
 
-  <button onclick="window.location='{% url 'apply' pk=service.id %}'" class="btn btn-primary">Solicitar servicio</button>
+  <button class="btn btn-outline-success" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
 </div>
 {% endblock %}

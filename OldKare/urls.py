@@ -31,7 +31,7 @@ urlpatterns = [
     path('service/<int:pk>', views.ServiceDetailView.as_view(), name='details'),
     path('service/add', views.add, name='add'),
     path('service/delete/<int:pk>', views.delete, name='delete'),
-    path('service/apply/<int:pk>', views.apply, name='apply'),
+    path('service/apply/<int:pk>', views.apply.as_view(), name="apply"),
     path('admin/', admin.site.urls),
-    path('sobre-nosotros', TemplateView.as_view(template_name="about-us.html")),
+    path('sobre-nosotros', TemplateView.as_view(template_name="principal/about-us.html")),
 ]

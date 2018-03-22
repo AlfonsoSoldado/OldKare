@@ -8,6 +8,8 @@
       {{ field.errors }}
       <input type="{% if 'password' in field.name %}password{% else %}input{% endif %}" placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control" />
     {% endfor %}
+    <h5>¡Ya casi estás!</h5>
+    <div class="progress"> <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 38%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div> </div>
     <br />
     <button type="submit" class="btn btn-primary">Registrarse</button>
     <br />

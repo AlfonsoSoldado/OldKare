@@ -78,3 +78,7 @@ input {
     margin-top: 50px;
     margin-left: 50px;
 }
+
+.media {
+    margin-top: 50px !important;
+}

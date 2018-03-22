@@ -1,7 +1,7 @@
 from django import forms            
 from django.contrib.auth.models import User   # fill in custom user info then save it 
 from django.contrib.auth.forms import UserCreationForm 
-from .models import UserDetails
+from .models import UserDetails, Service
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -27,12 +27,10 @@ class MyRegistrationForm(UserCreationForm):
 
         return user
 
-class ServiceForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    date = forms.DateTimeField()
-    description = forms.CharField(widget=forms.Textarea)
-    price = forms.DecimalField(max_digits=20, decimal_places=2)
-    avaliability = forms.IntegerField()
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = ('name', 'date', 'description', 'price', 'avaliability') 
 
 class UserDetailsForm(forms.ModelForm):
     class Meta:

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField()
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
@@ -16,6 +16,9 @@ class Service(models.Model):
 
     def short_description(self):
         return self.description[:15]
+
+    def get_absolute_url(self):
+        return u'/oldkareall'
 
 class UserDetails(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

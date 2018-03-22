@@ -1,0 +1,19 @@
+{% extends 'principal/base.html' %}
+{% block content %}
+<div class="container form-group">
+  <br />
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Solicita el servicio</h1>
+    </div>
+    <div class="col-lg-6">
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Solicitar </button>
+  </form>
+</div>
+
+{% endblock %}

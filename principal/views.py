@@ -38,6 +38,11 @@ class userView(UpdateView):
     template_name = 'principal/userDetailsForm.html'
     model = UserDetails
     fields = ['birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences']
+
+class apply(UpdateView):
+    template_name = 'principal/applyServiceForm.html'
+    model = Service
+    fields = ['offerer']
     
 
 class IndexView(TemplateView):
@@ -78,15 +83,6 @@ def delete(request, pk):
     if request.method == 'DELETE':
         service = get_object_or_404(Service, pk=pk)
         service.delete()
-
-    return HttpResponseRedirect('/')
-
-@login_required
-def apply(request, pk):
-
-    if request.method == 'POST':
-        service = get_object_or_404(Service, pk=pk)
-        service.object.offerer = request.user
 
     return HttpResponseRedirect('/')
 
