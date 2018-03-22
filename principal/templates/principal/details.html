@@ -9,5 +9,7 @@
   <p>{{ service.description }}</p>
   <p>{{ service.price }}</p>
   <p>{{ service.avaliability }}</p>
+
+  <button onclick="window.location='{% url 'apply' pk=service.id %}'" class="btn btn-primary">Solicitar servicio</button>
 </div>
 {% endblock %}

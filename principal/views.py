@@ -80,6 +80,15 @@ def delete(request, pk):
 
     return HttpResponseRedirect('/')
 
+@login_required
+def apply(request, pk):
+
+    if request.method == 'POST':
+        service = get_object_or_404(Service, pk=pk)
+        service.object.offerer = request.user
+
+    return HttpResponseRedirect('/')
+
 def register_user(request):
     if request.method == 'POST':
         form = MyRegistrationForm(request.POST)     # create form object
@@ -92,7 +101,7 @@ def register_user(request):
             email = form.cleaned_data['email']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/edit-user-details')
+            return redirect('/add-user-details')
 
     else:
         form = MyRegistrationForm()
@@ -129,4 +138,4 @@ def addUserDetails(request):
     else:
         form = UserDetailsForm()
 
-    return render(request, 'principal/userDetailsForm.html', {'form': form})
+    return render(request, 'principal/AddUserDetailsForm.html', {'form': form})

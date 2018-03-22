@@ -25,11 +25,13 @@ urlpatterns = [
     path('oldkareall', views.OldKareAllListView.as_view(), name='OldKare'),
     path('signup', views.register_user, name='signup'),
     path('update-user-details/<int:pk>', views.userView.as_view(), name="updateUserDetails"),
+    path('add-user-details', views.addUserDetails, name="addUserDetails"),
     path('login', auth_views.login, name='login'),
     path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('service/<int:pk>', views.ServiceDetailView.as_view(), name='details'),
     path('service/add', views.add, name='add'),
     path('service/delete/<int:pk>', views.delete, name='delete'),
+    path('service/apply/<int:pk>', views.apply, name='apply'),
     path('admin/', admin.site.urls),
     path('sobre-nosotros', TemplateView.as_view(template_name="about-us.html")),
 ]
