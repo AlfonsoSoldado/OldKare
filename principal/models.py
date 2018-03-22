@@ -34,7 +34,7 @@ class UserDetails(models.Model):
     postalAddress = models.CharField(max_length=100)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     occupation = models.CharField(max_length=100)
-    photo = models.CharField(max_length=600)
+    photo = models.URLField(max_length=600)
     socialReferences = models.CharField(null=True,blank=True,max_length=600)
 
     def __str__(self):
