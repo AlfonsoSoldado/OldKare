@@ -33,7 +33,7 @@ class DateInput(forms.DateInput):
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
-        fields = ('name', 'description', 'price', 'avaliability') 
+        fields = ('name', 'description', 'category', 'price', 'avaliability') 
 
 
 class UserDetailsForm(forms.ModelForm):

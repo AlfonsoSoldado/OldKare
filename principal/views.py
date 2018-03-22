@@ -25,7 +25,7 @@ class OldKareListView(LoginRequiredMixin, ListView):
         return Service.objects.filter(author=self.request.user)
 
 class OldKareAllListView(ListView):
-    template_name = 'principal/OldKare.html'
+    template_name = 'principal/OldKareAll.html'
     model = Service
     context_object_name = 'services'
 

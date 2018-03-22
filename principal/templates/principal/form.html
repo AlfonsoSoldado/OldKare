@@ -10,17 +10,13 @@
         <div class="card-body">
           <h4 class="card-title"></h4>
           <h6 class="card-subtitle mb-2 text-muted">Reglas de formato</h6>
-          <p class="card-text">Formato de fecha: YYYY-MM-DD</p>
           <p class="card-text">La disponibilidad introducirla con un rango entre 1-10</p>
         </div>
       </div>
     </div>
   </div>
   <form method="POST">
-    {% csrf_token %} {% for field in form %} {{ field.errors }}
-    <label>{{ field.label }}</label>
-    <input placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control" /> {% endfor %}
-    <br />
+    {% csrf_token %} {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>

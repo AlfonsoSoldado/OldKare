@@ -3,12 +3,21 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
 class Service(models.Model):
+    CATEGORY_CHOICES = (
+        ('Cuidado parcial', 'Cuidado parcial'),
+        ('Cuidado completo', 'Cuidado completo'),
+        ('Cuidado nocturno', 'Cuidado nocturno'),
+        ('Cuidado hospitalario', 'Cuidado hospitalario'),
+        ('Recados', 'Recados'),
+        ('Sin especificar', 'Sin especificar'),
+    )
     name = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     created = models.DateField(auto_now_add=True)
     price = models.DecimalField(max_digits=20, decimal_places=2)
     avaliability = models.IntegerField()
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     offerer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="offerer", null=True, blank=True)
 
     def __str__(self):
