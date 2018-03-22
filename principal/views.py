@@ -140,4 +140,4 @@ def addUserDetails(request):
     else:
         form = UserDetailsForm()
 
-    return render(request, 'principal/AddUserDetailsForm.html', {'form': form})
+    return render(request, 'principal/addUserDetailsForm.html', {'form': form})
