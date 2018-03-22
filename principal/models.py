@@ -21,11 +21,16 @@ class Service(models.Model):
         return u'/oldkareall'
 
 class UserDetails(models.Model):
+    GENDER_CHOICES = (
+        ('M', 'Mujer'),
+        ('H', 'Hombre'),
+        ('O', 'Otro'),
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthday = models.DateTimeField()
     phone = models.CharField(max_length=100)
     postalAddress = models.CharField(max_length=100)
-    gender = models.CharField(max_length=100)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     occupation = models.CharField(max_length=100)
     photo = models.CharField(max_length=600)
     socialReferences = models.CharField(null=True,blank=True,max_length=600)
