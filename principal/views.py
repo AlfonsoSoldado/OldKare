@@ -142,8 +142,7 @@ def updateUserDetails(request, id):
             return HttpResponseRedirect('/')
     else:
         form = UserDetailsForm(instance=userdetails)
-        args = {'form': form}
-    return render(request, 'principal/userDetailsForm.html', args)
+    return render(request, 'principal/userDetailsForm.html', {'form': form})
 
 def view_profile(request, id=None):
     if id:
