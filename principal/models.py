@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from django.core.validators import MaxValueValidator
 
 class Service(models.Model):
     CATEGORY_CHOICES = (
@@ -16,7 +17,7 @@ class Service(models.Model):
     description = models.TextField(verbose_name=('Descripción'))
     created = models.DateField(verbose_name=('Fecha de creación'), auto_now_add=True)
     price = models.DecimalField(verbose_name=('Precio'), max_digits=20, decimal_places=2)
-    avaliability = models.PositiveIntegerField(verbose_name=('Disponibilidad'))
+    avaliability = models.PositiveIntegerField(verbose_name=('Disponibilidad'), validators=[MaxValueValidator(10)])
     category = models.CharField(verbose_name=('Categoría'), max_length=50, choices=CATEGORY_CHOICES)
     offerer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="offerer", null=True, blank=True, verbose_name=('Solicitante'))
 
