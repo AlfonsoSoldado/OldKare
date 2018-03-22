@@ -34,6 +34,11 @@ class ServiceDetailView(DetailView):
     model = Service
     context_object_name = 'service'
 
+class userDetailsView(DetailView):
+    template_name = 'principal/userDetailsView.html'
+    model = UserDetails
+    context_object_name = 'userDetails'
+
 class userView(UpdateView):
     template_name = 'principal/userDetailsForm.html'
     model = UserDetails

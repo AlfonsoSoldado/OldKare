@@ -82,3 +82,8 @@ input {
 .media {
     margin-top: 50px !important;
 }
+
+.profile-photo {
+    max-width: 300px;
+    max-height: 300px;
+}

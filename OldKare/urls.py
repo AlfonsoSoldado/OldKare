@@ -25,6 +25,7 @@ urlpatterns = [
     path('oldkareall', views.OldKareAllListView.as_view(), name='OldKare'),
     path('signup', views.register_user, name='signup'),
     path('update-user-details/<int:pk>', views.userView.as_view(), name="updateUserDetails"),
+    path('userDetails/<int:pk>', views.userDetailsView.as_view(), name='userDetails'),
     path('add-user-details', views.addUserDetails, name="addUserDetails"),
     path('login', auth_views.login, name='login'),
     path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),
@@ -34,4 +35,5 @@ urlpatterns = [
     path('service/apply/<int:pk>', views.apply.as_view(), name="apply"),
     path('admin/', admin.site.urls),
     path('sobre-nosotros', TemplateView.as_view(template_name="principal/about-us.html")),
+    path('terminos-y-condiciones', TemplateView.as_view(template_name="principal/termsAndConditions.html")),
 ]
