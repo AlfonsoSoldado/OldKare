@@ -17,7 +17,11 @@
     </div>
   </div>
   <form method="POST">
+      <div class="form-container">
+          <div class="form-class">
     {% csrf_token %} {{ form.as_p }}
+    </div>
+    </div>
     <h5>¡Ya casi estás!</h5>
     <div class="progress">
       <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 68%" aria-valuenow="28" aria-valuemin="0"

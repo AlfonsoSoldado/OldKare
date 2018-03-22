@@ -18,8 +18,12 @@
     </div>
   </div>
   <form method="POST">
+      <div class="form-container">
+          <div class="form-class">
     {% csrf_token %} {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+    </div>
   </form>
 </div>
 {% endif %}
