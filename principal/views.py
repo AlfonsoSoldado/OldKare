@@ -57,6 +57,7 @@ def add(request):
         if form.is_valid():
             name = form.cleaned_data['name']
             description = form.cleaned_data['description']
+            category = form.cleaned_data['category']
             price = form.cleaned_data['price']
             avaliability = form.cleaned_data['avaliability']
 
@@ -64,6 +65,7 @@ def add(request):
                 name=name,
                 author=request.user,
                 description=description,
+                category=category,
                 price=price,
                 avaliability=avaliability,
             ).save()
