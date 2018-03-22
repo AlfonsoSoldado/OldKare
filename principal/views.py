@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect    
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView
 from .models import Service, UserDetails
 from .forms import ServiceForm, UserDetailsForm
 from django.db.models import F
@@ -34,10 +34,10 @@ class ServiceDetailView(DetailView):
     model = Service
     context_object_name = 'service'
 
-class userView(DetailView):
-    template_name = 'principal/userDetailsView.html'
+class userView(UpdateView):
+    template_name = 'principal/userDetailsForm.html'
     model = UserDetails
-    context_object_name = 'userDetails'
+    fields = ['birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences']
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
@@ -130,24 +130,3 @@ def addUserDetails(request):
         form = UserDetailsForm()
 
     return render(request, 'principal/userDetailsForm.html', {'form': form})
-
-
-@login_required
-def updateUserDetails(request, id):
-    userdetails = UserDetails.objects.get(id=id)
-    if request.method == "POST":
-        form = UserDetailsForm(request.POST, instance=userdetails)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-    else:
-        form = UserDetailsForm(instance=userdetails)
-    return render(request, 'principal/userDetailsForm.html', {'form': form})
-
-def view_profile(request, id=None):
-    if id:
-        user = UserDetails.objects.get(id=id)
-    else:
-        user = request.user
-    args = {'user': user}
-    return render(request, 'principal/userDetailsView.html', args)

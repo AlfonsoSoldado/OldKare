@@ -35,14 +35,6 @@ class ServiceForm(forms.Form):
     avaliability = forms.IntegerField()
 
 class UserDetailsForm(forms.ModelForm):
-    birthday = forms.DateTimeField()
-    phone = forms.CharField(max_length=100)
-    postalAddress = forms.CharField(max_length=100)
-    gender = forms.CharField(max_length=100)
-    occupation = forms.CharField(max_length=100,widget=forms.Textarea)
-    photo = forms.CharField(max_length=100)
-    socialReferences = forms.CharField(widget=forms.Textarea)
-
     class Meta:
         model = UserDetails
         fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences') 

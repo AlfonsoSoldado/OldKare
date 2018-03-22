@@ -11,13 +11,7 @@
   </div>
   <form method="POST">
     {% csrf_token %}
-    Birthday:<input type="text" name="birthday" value="{{ user.userdetails.birthday}}" class="form-control" /><br />
-    Phone:<input type="text" name="phone" value="{{ user.userdetails.phone}}" class="form-control" /><br />
-    Postal address:<input type="text" name="postalAddress" value="{{ user.userdetails.postalAddress}}" class="form-control" /><br />
-    Gender:<input type="text" name="gender" value="{{ user.userdetails.gender}}" class="form-control" /><br />
-    Occupation:<input type="text" name="occupation" value="{{ user.userdetails.occupation}}" class="form-control" /><br />
-    Photo:<input type="text" name="photo" value="{{ user.userdetails.photo}}" class="form-control" /><br />
-    Social references:<input type="text" name="socialReferences" value="{{ user.userdetails.socialReferences}}" class="form-control" /><br />
+    {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Editar</button>
   </form>
 </div>
