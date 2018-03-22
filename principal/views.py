@@ -37,7 +37,7 @@ class ServiceDetailView(DetailView):
 class userView(UpdateView):
     template_name = 'principal/userDetailsForm.html'
     model = UserDetails
-    fields = ['birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences']
+    form_class = UserDetailsForm
 
 class apply(UpdateView):
     template_name = 'principal/applyServiceForm.html'

@@ -32,7 +32,13 @@ class ServiceForm(forms.ModelForm):
         model = Service
         fields = ('name', 'date', 'description', 'price', 'avaliability') 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class UserDetailsForm(forms.ModelForm):
     class Meta:
         model = UserDetails
-        fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences') 
+        fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences')
+        widgets = {
+            'birthday': DateInput(),
+        } 
