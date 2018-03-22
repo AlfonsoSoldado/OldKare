@@ -28,7 +28,7 @@ class UserDetails(models.Model):
     gender = models.CharField(max_length=100)
     occupation = models.CharField(max_length=100)
     photo = models.CharField(max_length=600)
-    socialReferences = models.CharField(max_length=100)
+    socialReferences = models.CharField(null=True,blank=True,max_length=600)
 
     def __str__(self):
         return f'{self.user.username}'

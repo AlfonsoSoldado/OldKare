@@ -1,15 +1,30 @@
 {% extends 'principal/base.html' %}{% block content %}
-<div class="container-fluid"></div>
-<div class="details">
-  <button onclick="window.location='{% url 'OldKare' %}'" class="btn btn-default">Volver</button>
-  <hr />
-  <h1>{{ service.name }}</h1>
-  <hr />
-  <h5>{{ service.date }}</h5>
-  <p>{{ service.description }}</p>
-  <p>{{ service.price }}</p>
-  <p>{{ service.avaliability }}</p>
-
-  <button class="btn btn-outline-success" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{ service.name }}</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h6 class="card-subtitle mb-2 text-muted">Fecha: </h6>
+          <p class="card-text">{{ service.date }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Precio: </h6>
+          <p class="card-text">{{ service.price }} €</p>
+        </div>
+        <div class="col order-12">
+          <h6 class="card-subtitle mb-2 text-muted">Disponibilidad: </h6>
+          <p class="card-text">{{ service.avaliability }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Solicitante: </h6>
+          <p class="card-text">{{ service.offerer }}</p>
+        </div>
+        <div class="col order-1">
+          <h6 class="card-subtitle mb-2 text-muted">Descripción: </h6>
+          <p class="card-text">{{ service.description|truncatechars:100 }}</p>
+        </div>
+      </div>
+      {% if request.user.is_authenticated%}
+      <button class="btn btn-outline-success" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+      {% endif %}
+    </div>
+  </div>
 </div>
 {% endblock %}
