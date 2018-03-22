@@ -1,10 +1,12 @@
-{% extends 'principal/base.html' %}
-{% block content %}
+{% extends 'principal/base.html' %} {% block content %}
 <div class="page-center container">
   <h1>Iniciar sesión</h1>
   <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-container">
+      <div class="form-class">
+        {% csrf_token %} {{ form.as_p }}
+      </div>
+    </div>
     <br />
     <button type="submit" class="btn btn-outline-success">Iniciar sesión</button>
     <br />
