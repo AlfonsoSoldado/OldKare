@@ -43,7 +43,7 @@
           {% if request.user.is_authenticated%}
           <div class="buttons-login-logout-signup">
             <button class="btn btn-outline-success" onclick="window.location='{% url 'updateUserDetails' pk=user.userdetails.id %}'">{{request.user.username}}</button>
-            <button type="button" class="btn btn-outline-danger" onclick="window.location='logout'">Logout</button>
+            <button type="button" class="btn btn-outline-danger" onclick="window.location='{% url 'logout' %}'">Logout</button>
             {% else %}
             <div class="separator">
               <button class="btn btn-outline-light" onclick="window.location='signup'">Registro</button>

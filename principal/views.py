@@ -56,7 +56,6 @@ def add(request):
 
         if form.is_valid():
             name = form.cleaned_data['name']
-            date = form.cleaned_data['date']
             description = form.cleaned_data['description']
             price = form.cleaned_data['price']
             avaliability = form.cleaned_data['avaliability']
@@ -64,13 +63,12 @@ def add(request):
             Service.objects.create(
                 name=name,
                 author=request.user,
-                date=date,
                 description=description,
                 price=price,
                 avaliability=avaliability,
             ).save()
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/oldkare')
 
     else:
         form = ServiceForm()

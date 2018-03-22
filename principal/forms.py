@@ -27,13 +27,14 @@ class MyRegistrationForm(UserCreationForm):
 
         return user
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
-        fields = ('name', 'date', 'description', 'price', 'avaliability') 
+        fields = ('name', 'description', 'price', 'avaliability') 
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
 
 class UserDetailsForm(forms.ModelForm):
     class Meta:

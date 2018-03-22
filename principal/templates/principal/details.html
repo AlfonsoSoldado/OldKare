@@ -3,10 +3,12 @@
   <div class="card-body">
     <h4 class="card-title">{{ service.name }}</h4>
     <div class="container">
+        <h6 class="card-subtitle mb-2 text-muted">Autor: </h6>
+        <p class="card-text">{{ service.author }}</p>
       <div class="row">
         <div class="col">
-          <h6 class="card-subtitle mb-2 text-muted">Fecha: </h6>
-          <p class="card-text">{{ service.date }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Fecha de creación: </h6>
+          <p class="card-text">{{ service.created }}</p>
           <h6 class="card-subtitle mb-2 text-muted">Precio: </h6>
           <p class="card-text">{{ service.price }} €</p>
         </div>
