@@ -18,7 +18,7 @@
         </div>
         <div class="col order-1">
           <h6 class="card-subtitle mb-2 text-muted">Descripción: </h6>
-          <p class="card-text">{{ service.description|truncatechars:100 }}</p>
+          <p class="card-text">{{ service.description }}</p>
         </div>
       </div>
       {% if request.user.is_authenticated%}
