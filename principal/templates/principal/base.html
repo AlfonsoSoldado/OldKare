@@ -46,9 +46,9 @@
             <button type="button" class="btn btn-outline-danger" onclick="window.location='{% url 'logout' %}'">Logout</button>
             {% else %}
             <div class="separator">
-              <button class="btn btn-outline-light" onclick="window.location='signup'">Registro</button>
+              <button class="btn btn-outline-light" onclick="window.location='{% url 'signup' %}'">Registro</button>
             </div>
-            <button class="btn btn-outline-success" onclick="window.location='login'">Login</button>
+            <button class="btn btn-outline-success" onclick="window.location='{% url 'login' %}'">Login</button>
             {% endif %}
           </div>
         </div>
