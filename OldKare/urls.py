@@ -14,13 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from principal import views
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
+urlpatterns += i18n_patterns(
     path('', views.IndexView.as_view(), name='index'),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('oldkare', views.OldKareListView.as_view(), name='OldKare'),
     path('oldkareall', views.OldKareAllListView.as_view(), name='OldKare'),
     path('signup', views.register_user, name='signup'),
@@ -33,7 +39,6 @@ urlpatterns = [
     path('service/add', views.add, name='add'),
     path('service/delete/<int:pk>', views.delete, name='delete'),
     path('service/apply/<int:pk>', views.apply.as_view(), name="apply"),
-    path('admin/', admin.site.urls),
     path('sobre-nosotros', TemplateView.as_view(template_name="principal/about-us.html")),
     path('terminos-y-condiciones', TemplateView.as_view(template_name="principal/termsAndConditions.html")),
-]
+)

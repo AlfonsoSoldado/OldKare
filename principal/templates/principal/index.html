@@ -1,4 +1,6 @@
 {% extends 'principal/base.html' %} {% block content %}
+{% load i18n %}
+{% trans alert %}
 <div class="container-fluid principal-page">
   <div class="row">
     <div class="col-8">
@@ -7,10 +9,10 @@
     <div class="col-4">
       <h3>
         OldKare
-        <small class="text-muted">¿Estás buscando algún servicio?</small>
+        <small class="text-muted">{% trans "¿Estás buscando un servicio?"%}</small>
       </h3>
       <br/>
-      <p>En oldkare se encuentran los mejores cuidadores que puedas necesitar para tus mayores más cercanos.</p>
+      <p>{% blocktrans %}En oldkare se encuentran los mejores cuidadores que puedas necesitar para tus mayores más cercanos.{% endblocktrans %}</p>
       <br/>
 
       <p>OldKare - Your family, my family. </p>

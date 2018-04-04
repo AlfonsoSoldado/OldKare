@@ -12,7 +12,7 @@ class Service(models.Model):
         ('Recados', 'Recados'),
         ('Sin especificar', 'Sin especificar'),
     )
-    name = models.CharField(verbose_name=('Nombre'), max_length=100)
+    name = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=('Autor'))
     description = models.TextField(verbose_name=('Descripción'))
     created = models.DateField(verbose_name=('Fecha de creación'), auto_now_add=True)
