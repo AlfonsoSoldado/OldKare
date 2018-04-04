@@ -13,6 +13,8 @@ from .models import Service, UserDetails
 from .forms import ServiceForm, UserDetailsForm
 from django.db.models import F
 from django.contrib.auth.models import User
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -38,6 +40,10 @@ class updateService(UpdateView):
     template_name = 'principal/form.html'
     model = Service
     form_class = ServiceForm
+
+class ServiceDelete(DeleteView):
+    model = Service
+    success_url = reverse_lazy('index')
 
 class userDetailsView(DetailView):
     template_name = 'principal/userDetailsView.html'
