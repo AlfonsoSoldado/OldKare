@@ -36,6 +36,7 @@ urlpatterns += i18n_patterns(
     path('login', auth_views.login, name='login'),
     path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('service/<int:pk>', views.ServiceDetailView.as_view(), name='details'),
+    path('update-service/<int:pk>', views.updateService.as_view(), name="updateService"),
     path('service/add', views.add, name='add'),
     path('service/delete/<int:pk>', views.delete, name='delete'),
     path('service/apply/<int:pk>', views.apply.as_view(), name="apply"),
