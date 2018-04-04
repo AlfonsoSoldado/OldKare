@@ -44,5 +44,6 @@ urlpatterns += i18n_patterns(
     path('terminos-y-condiciones', TemplateView.as_view(template_name="principal/termsAndConditions.html")),
     path('add-curriculum', views.addCurriculum, name="addCurriculum"),
     path('curriculum', views.curriculumView.as_view(), name='curriculum'),
-    #path('curriculum/<int:pk>', views.curriculumView.as_view(), name='curriculum'),
+    path('update-curriculum/<int:pk>', views.curriculumUpdate.as_view(), name="curriculumUpdate"),
+    path('curriculum/delete/<int:pk>', views.CurriculumDelete.as_view(), name='deleteCurriculum'),
 )

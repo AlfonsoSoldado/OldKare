@@ -73,9 +73,13 @@ class curriculumView(ListView):
         return Curriculum.objects.filter(user=self.request.user)
 
 class curriculumUpdate(UpdateView):
-    template_name = 'principal/updateCurriculum.html'
+    template_name = 'principal/addCurriculumForm.html'
     model = Curriculum
     fields = ['personalData', 'experience', 'education', 'misc']
+
+class CurriculumDelete(DeleteView):
+    model = Curriculum
+    success_url = reverse_lazy('index')
 
 @login_required
 def add(request):

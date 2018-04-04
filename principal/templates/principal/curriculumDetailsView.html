@@ -16,6 +16,8 @@
                     <p class="card-text">{{ c.misc }}</p>
                 </div>
                 <div class="col order-12">
+                        <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculumUpdate' pk=c.id %}'">Editar el curriculum</button>
+                        <button class="btn btn-outline-success" onclick="window.location='{% url 'deleteCurriculum' pk=c.id %}'">Borrar el curriculum</button>
                 </div>
                 <div class="col order-1">
                 </div>

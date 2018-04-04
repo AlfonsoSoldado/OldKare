@@ -62,3 +62,6 @@ class Curriculum(models.Model):
 
     def __str__(self):
         return f'{self.user.username}'
+
+    def get_absolute_url(self):
+        return u'/curriculum'
