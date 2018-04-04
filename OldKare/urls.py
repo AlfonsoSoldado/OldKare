@@ -46,4 +46,5 @@ urlpatterns += i18n_patterns(
     path('curriculum', views.curriculumView.as_view(), name='curriculum'),
     path('update-curriculum/<int:pk>', views.curriculumUpdate.as_view(), name="curriculumUpdate"),
     path('curriculum/delete/<int:pk>', views.CurriculumDelete.as_view(), name='deleteCurriculum'),
+    path('feedback/add', views.addFeedback, name='addFeedback'),
 )

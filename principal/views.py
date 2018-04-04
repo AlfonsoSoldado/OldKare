@@ -10,7 +10,7 @@ from django.contrib import auth
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView
 from .models import Service, UserDetails, Curriculum
-from .forms import ServiceForm, UserDetailsForm, CurriculumForm
+from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm
 from django.db.models import F
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
@@ -197,3 +197,26 @@ def addCurriculum(request):
         form = CurriculumForm()
 
     return render(request, 'principal/addCurriculumForm.html', {'form': form})
+
+
+@login_required
+def addFeedback(request):
+
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            ranking = form.cleaned_data['ranking']
+            description = form.cleaned_data['description']
+
+            Feedback.objects.create(
+                ranking=ranking,
+                description=description,
+            ).save()
+
+            return HttpResponseRedirect('/')
+
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'principal/addFeedbackform.html', {'form': form})
