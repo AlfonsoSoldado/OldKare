@@ -29,6 +29,7 @@
       {% if request.user.is_authenticated%}
       <button class="btn btn-outline-success" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
       <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">Editar servicio</button>
+      <button class="btn btn-outline-success" onclick="window.location='{% url 'deleteService' pk=service.id %}'">Borrar servicio</button>
       {% endif %}
     </div>
   </div>

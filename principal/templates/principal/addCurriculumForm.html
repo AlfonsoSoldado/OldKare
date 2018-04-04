@@ -1,0 +1,29 @@
+{% extends 'principal/base.html' %} {% block content %}
+<div class="container form-group">
+  <br />
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Añade tu currículum</h1>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+      <div class="form-container">
+          <div class="form-class">
+    {% csrf_token %} {{ form.as_p }}
+    </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+{% endblock %}

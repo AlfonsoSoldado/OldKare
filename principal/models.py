@@ -51,3 +51,14 @@ class UserDetails(models.Model):
         return f'{self.user.username}'
     def get_absolute_url(self):
         return u'/oldkare'
+
+
+class Curriculum(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=('Usuario'))
+    personalData = models.CharField(max_length=1000, blank=True, verbose_name=('Datos personales'))
+    experience = models.CharField(max_length=300, blank=True, verbose_name=('Experiencia'))
+    education = models.CharField(max_length=100, blank=True, verbose_name=('Educación'))
+    misc = models.CharField(max_length=300, blank=True, verbose_name=('Miscellaneous'))
+
+    def __str__(self):
+        return f'{self.user.username}'

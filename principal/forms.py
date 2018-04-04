@@ -1,7 +1,7 @@
 from django import forms            
 from django.contrib.auth.models import User   # fill in custom user info then save it 
 from django.contrib.auth.forms import UserCreationForm 
-from .models import UserDetails, Service
+from .models import UserDetails, Service, Curriculum
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -43,3 +43,8 @@ class UserDetailsForm(forms.ModelForm):
         widgets = {
             'birthday': DateInput(),
         } 
+
+class CurriculumForm(forms.ModelForm):
+    class Meta:
+        model = Curriculum
+        fields = ('personalData', 'experience', 'education', 'misc')

@@ -1,0 +1,21 @@
+{% extends 'principal/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>Currículum</h1>
+    </div>
+   <div class="col-lg-8">
+      {% if request.user.is_authenticated%}
+      <button onclick="window.location='{% url 'addCurriculum' %}'" type="button" class="btn btn-success">Añadir currículum</button>
+      {% endif %}
+    </div>
+  </div>
+  <hr />
+    {% for c in curriculum %}
+      {% include 'principal/curriculumDetailsView.html' %}
+    {% endfor %}
+</div>
+{% endblock %}

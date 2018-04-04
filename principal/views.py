@@ -9,8 +9,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView
-from .models import Service, UserDetails
-from .forms import ServiceForm, UserDetailsForm
+from .models import Service, UserDetails, Curriculum
+from .forms import ServiceForm, UserDetailsForm, CurriculumForm
 from django.db.models import F
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
@@ -63,6 +63,19 @@ class apply(UpdateView):
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
+
+class curriculumView(ListView):
+    template_name = 'principal/curriculum.html'
+    model = Curriculum
+    context_object_name = 'curriculum'
+
+    def get_queryset(self, *arg, **kwargs):
+        return Curriculum.objects.filter(user=self.request.user)
+
+class curriculumUpdate(UpdateView):
+    template_name = 'principal/updateCurriculum.html'
+    model = Curriculum
+    fields = ['personalData', 'experience', 'education', 'misc']
 
 @login_required
 def add(request):
@@ -152,3 +165,31 @@ def addUserDetails(request):
         form = UserDetailsForm()
 
     return render(request, 'principal/addUserDetailsForm.html', {'form': form})
+
+
+
+@login_required
+def addCurriculum(request):
+
+    if request.method == 'POST':
+        form = CurriculumForm(request.POST)
+        if form.is_valid():
+            personalData = form.cleaned_data['personalData']
+            experience = form.cleaned_data['experience']
+            education = form.cleaned_data['education']
+            misc = form.cleaned_data['misc']
+
+            Curriculum.objects.create(
+                user=request.user,
+                personalData=personalData,
+                experience=experience,
+                education=education,
+                misc=misc,
+            ).save()
+
+            return HttpResponseRedirect('/')
+
+    else:
+        form = CurriculumForm()
+
+    return render(request, 'principal/addCurriculumForm.html', {'form': form})
