@@ -15,12 +15,13 @@
                     <p class="card-text">{{ userDetails.birthday }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Profesión: </h6>
                     <p class="card-text">{{ userDetails.occupation }}</p>
+                    <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculum' %}'">Curriculum</button>
                 </div>
                 <div class="col order-12">
-                    <img class="d-flex mr-3 profile-photo" src="{{userDetails.photo}}" alt="Generic placeholder image">
+                    
                 </div>
                 <div class="col order-1">
-                    <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculum' %}'">Curriculum</button>
+                        <img class="d-flex mr-3 profile-photo" src="{{userDetails.photo}}" alt="Generic placeholder image">
                 </div>
             </div>
         </div>

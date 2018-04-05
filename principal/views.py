@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView
-from .models import Service, UserDetails, Curriculum
+from .models import Service, UserDetails, Curriculum, Feedback
 from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm
 from django.db.models import F
 from django.contrib.auth.models import User
@@ -79,6 +79,15 @@ class curriculumUpdate(UpdateView):
 
 class CurriculumDelete(DeleteView):
     model = Curriculum
+    success_url = reverse_lazy('index')
+
+class feedbackUpdate(UpdateView):
+    template_name = 'principal/addFeedbackForm.html'
+    model = Feedback
+    fields = ['ranking', 'description']
+
+class feedbackDelete(DeleteView):
+    model = Feedback
     success_url = reverse_lazy('index')
 
 @login_required
@@ -219,4 +228,4 @@ def addFeedback(request):
     else:
         form = FeedbackForm()
 
-    return render(request, 'principal/addFeedbackform.html', {'form': form})
+    return render(request, 'principal/addFeedbackForm.html', {'form': form})

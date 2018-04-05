@@ -12,7 +12,7 @@ class Feedback(models.Model):
         return f'{self.ranking}'
 
     def get_absolute_url(self):
-        return u'/index'
+        return u'/'
 
 class Service(models.Model):
     CATEGORY_CHOICES = (

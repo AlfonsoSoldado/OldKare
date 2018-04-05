@@ -25,13 +25,16 @@
           <p class="card-text">{{ service.description }}</p>
         </div>
       </div>
-      <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-primary">Información sobre el autor</button>
+      <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">Información sobre el autor</button>
       {% if request.user.is_authenticated%}
-      <button class="btn btn-outline-success" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+      <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+      <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
       {% endif %}
       {% if service.author.id == request.user.id%}
+    </br>
+  </br>
       <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">Editar servicio</button>
-      <button class="btn btn-outline-success" onclick="window.location='{% url 'deleteService' pk=service.id %}'">Borrar servicio</button>
+      <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">Borrar servicio</button>
       {% endif %}
     </div>
   </div>

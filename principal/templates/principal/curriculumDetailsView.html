@@ -15,12 +15,14 @@
                     <h6 class="card-subtitle mb-2 text-muted">Miscellaneous: </h6>
                     <p class="card-text">{{ c.misc }}</p>
                 </div>
+                {% if c.user.id == request.user.id%}
                 <div class="col order-12">
                         <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculumUpdate' pk=c.id %}'">Editar el curriculum</button>
-                        <button class="btn btn-outline-success" onclick="window.location='{% url 'deleteCurriculum' pk=c.id %}'">Borrar el curriculum</button>
                 </div>
                 <div class="col order-1">
+                        <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteCurriculum' pk=c.id %}'">Borrar el curriculum</button>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
