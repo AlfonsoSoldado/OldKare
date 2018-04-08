@@ -58,7 +58,8 @@ class userView(UpdateView):
 class apply(UpdateView):
     template_name = 'principal/applyServiceForm.html'
     model = Service
-    Service.objects.update(offerer=self.request.user)
+    fields = ['offerer']
+    
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
