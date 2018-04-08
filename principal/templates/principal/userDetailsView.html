@@ -15,7 +15,7 @@
                     <p class="card-text">{{ userDetails.birthday }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Profesión: </h6>
                     <p class="card-text">{{ userDetails.occupation }}</p>
-                    <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculum' %}'">Curriculum</button>
+                    <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculum' pk=userDetails.user.curriculum.id %}'">Curriculum</button>
                 </div>
                 <div class="col order-12">
                     

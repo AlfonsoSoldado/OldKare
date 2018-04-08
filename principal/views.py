@@ -69,9 +69,6 @@ class curriculumView(ListView):
     model = Curriculum
     context_object_name = 'curriculum'
 
-    def get_queryset(self, *arg, **kwargs):
-        return Curriculum.objects.filter(user=self.request.user)
-
 class curriculumUpdate(UpdateView):
     template_name = 'principal/addCurriculumForm.html'
     model = Curriculum
