@@ -9,8 +9,6 @@ class MyRegistrationForm(UserCreationForm):
     first_name = forms.CharField(label = "Nombre")
     last_name = forms.CharField(label = "Apellidos")
 
-
-
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')        

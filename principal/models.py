@@ -1,11 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
-from django.core.validators import MaxValueValidator
-
+from django.core.validators import RegexValidator, MaxValueValidator
 
 class Feedback(models.Model):
-    ranking = models.DecimalField(verbose_name=('Ranking'), max_digits=20, decimal_places=2)
+    ranking = models.PositiveIntegerField(verbose_name=('Ranking'), validators=[MaxValueValidator(10)])
     description = models.TextField(verbose_name=('Descripción'))
 
     def __str__(self):
@@ -31,7 +29,7 @@ class Service(models.Model):
     avaliability = models.PositiveIntegerField(verbose_name=('Disponibilidad'), validators=[MaxValueValidator(10)])
     category = models.CharField(verbose_name=('Categoría'), max_length=50, choices=CATEGORY_CHOICES)
     offerer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="offerer", null=True, blank=True, verbose_name=('Solicitante'))
-    feedback = models.ForeignKey(to=Feedback, on_delete=models.CASCADE, null=True, blank=True)
+    feedback = models.ManyToManyField(Feedback)
 
     def __str__(self):
         return f'{self.name}'
