@@ -8,15 +8,17 @@
   <br />
   <div class="row">
     <div class="col-lg-4">
-      <h1>Currículum</h1>
+      <h1>Feedbacks</h1>
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
-      <button onclick="window.location='{% url 'addFeedback' %}'" type="button" class="btn btn-success">Añadir currículum</button>
+      <button onclick="window.location='{% url 'addFeedback' %}'" type="button" class="btn btn-success">Añadir feedback</button>
       {% endif %}
     </div>
   </div>
   <hr />
+  {% for f in feedback.all %}
     {% include 'principal/feedbackDetailsView.html' %}
+    {% endfor %}
 </div>
 {% endblock %}

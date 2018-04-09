@@ -49,4 +49,5 @@ urlpatterns += i18n_patterns(
     path('feedback/add', views.addFeedback, name='addFeedback'),
     path('update-feedback/<int:pk>', views.feedbackUpdate.as_view(), name="feedbackUpdate"),
     path('feedback/delete/<int:pk>', views.feedbackDelete.as_view(), name='deleteFeedback'),
+    path('feedback/<int:pk>', views.feedbackView.as_view(), name='feedback'),
 )

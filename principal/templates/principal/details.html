@@ -24,6 +24,7 @@
           <hr/>
           <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
           {% endif %}
+          <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
         </div>
         <div class="col order-1">
           <h6 class="card-subtitle mb-2 text-muted">Descripción: </h6>
