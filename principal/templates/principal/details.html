@@ -32,7 +32,7 @@
           <p class="card-text">{{ service.avaliability }}</p>
           {% if service.author.id == request.user.id%}
           <h6 class="card-subtitle mb-2 text-muted">Solicitantes: </h6>
-          <p class="card-text">{{ service.offerer }}</p>
+          <p class="card-text">{{ service.offerer.all }}</p>
           {% endif %}
         </div>
       </div>

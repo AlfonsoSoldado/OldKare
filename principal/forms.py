@@ -33,7 +33,6 @@ class ServiceForm(forms.ModelForm):
         model = Service
         fields = ('name', 'description', 'category', 'price', 'avaliability') 
 
-
 class UserDetailsForm(forms.ModelForm):
     class Meta:
         model = UserDetails
