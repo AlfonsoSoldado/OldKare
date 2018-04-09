@@ -59,11 +59,11 @@ class apply(UpdateView):
     template_name = 'principal/applyServiceForm.html'
     model = Service
     fields = []
-    service = Service.objects.get(pk=1)
-    print("Servicio: " + service.name)
-    offerer = User.objects.get(pk=1)
-    print("Solicitante: " + offerer.username)
-    service.offerer.add(offerer)
+    def form_valid(self, form):
+        service = Service.objects.get(pk=1)
+        offerer = self.request.user
+        service.offerer.add(offerer)
+        return HttpResponseRedirect(self.get_success_url())
 
 class IndexView(TemplateView):
     template_name = 'principal/index.html'

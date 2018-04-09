@@ -28,7 +28,7 @@ class Service(models.Model):
     price = models.DecimalField(verbose_name=('Precio'), max_digits=20, decimal_places=2)
     avaliability = models.PositiveIntegerField(verbose_name=('Disponibilidad'), validators=[MaxValueValidator(10)])
     category = models.CharField(verbose_name=('Categoría'), max_length=50, choices=CATEGORY_CHOICES)
-    offerer = models.ManyToManyField(User, related_name="offerer", null=True, blank=True, verbose_name=('Solicitante'))
+    offerer = models.ManyToManyField(User, related_name="offerer", blank=True, verbose_name=('Solicitante'))
     feedback = models.ManyToManyField(Feedback)
 
     def __str__(self):
