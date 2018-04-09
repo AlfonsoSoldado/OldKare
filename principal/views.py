@@ -60,7 +60,7 @@ class apply(UpdateView):
     model = Service
     fields = []
     def form_valid(self, form):
-        service = Service.objects.get(pk=1)
+        service = Service.objects.get(pk=self.kwargs.get('pk'))
         offerer = self.request.user
         service.offerer.add(offerer)
         return HttpResponseRedirect(self.get_success_url())
