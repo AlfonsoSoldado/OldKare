@@ -1,26 +1,26 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Usuario: <b>{{ c.user.username }}</b></h4>
+        <h4 class="card-title">Usuario: <b>{{ curriculum.user.username }}</b></h4>
         <div class="container">
             <h6 class="card-subtitle mb-2 text-muted">Datos personales: </h6>
-            <p class="card-text">{{ c.personalData }}</p>
+            <p class="card-text">{{ curriculum.personalData }}</p>
             <h6 class="card-subtitle mb-2 text-muted">Experiencia: </h6>
-            <p class="card-text">{{ c.experience }}</p>
+            <p class="card-text">{{ curriculum.experience }}</p>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
             <p class="card-text"></p>
             <div class="row">
                 <div class="col">
                     <h6 class="card-subtitle mb-2 text-muted">Educación: </h6>
-                    <p class="card-text">{{ c.education }}</p>
+                    <p class="card-text">{{ curriculum.education }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">Miscellaneous: </h6>
-                    <p class="card-text">{{ c.misc }}</p>
+                    <p class="card-text">{{ curriculum.misc }}</p>
                 </div>
-                {% if c.user.id == request.user.id%}
+                {% if curriculum.user.id == request.user.id%}
                 <div class="col order-12">
-                        <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculumUpdate' pk=c.id %}'">Editar el curriculum</button>
+                        <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculumUpdate' pk=curriculum.id %}'">Editar el curriculum</button>
                 </div>
                 <div class="col order-1">
-                        <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteCurriculum' pk=c.id %}'">Borrar el curriculum</button>
+                        <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteCurriculum' pk=curriculum.id %}'">Borrar el curriculum</button>
                 </div>
                 {% endif %}
             </div>

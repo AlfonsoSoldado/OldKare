@@ -1,22 +1,20 @@
 {% extends 'principal/base.html' %}
-{% load i18n %}
 {% block content %}
-<br/>
-<br/>
-<br/>
 <div class="container">
   <br />
   <div class="row">
     <div class="col-lg-4">
-      <h1>Currículum</h1>
+      <h1>Servicios</h1>
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
-      <button onclick="window.location='{% url 'addCurriculum' %}'" type="button" class="btn btn-success">Añadir currículum</button>
+      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">Añadir servicio</button>
       {% endif %}
     </div>
   </div>
   <hr />
-    {% include 'principal/curriculumDetailsView.html' %}
+    {% for service in services %}
+      {% include 'principal/_OldKare_service.html' %}
+    {% endfor %}
 </div>
 {% endblock %}

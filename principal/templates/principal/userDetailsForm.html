@@ -1,5 +1,9 @@
 {% extends 'principal/base.html' %} {% block content %}
 {% if request.user.is_authenticated%}
+<br/>
+<br/>
+<br/>
+
 <div class="container form-group">
   <br />
   <div class="row">
@@ -16,6 +20,7 @@
       </div>
     </div>
   </div>
+  <div class="card card-service">
   <form method="POST">
       <div class="form-container">
           <div class="form-class">
@@ -25,6 +30,8 @@
     </div>
   </form>
 </div>
+</div>
+
 {% endif %}
 
 {% endblock %}

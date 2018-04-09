@@ -1,21 +1,14 @@
 {% extends 'principal/base.html' %} {% block content %}
 {% load i18n %}
-<div class="container-fluid principal-page">
-  <div class="row">
-    <div class="col-8">
-      <img id="img-fondo" class="img-fluid" src="../static/img/oldkare-principal-image.jpg"/>
-    </div>
-    <div class="col-4">
-      <h3>
-        OldKare
-        <small class="text-muted">{% trans "¿Estás buscando un servicio?"%}</small>
-      </h3>
-      <br/>
-      <p>{% blocktrans %}En oldkare se encuentran los mejores cuidadores que puedas necesitar para tus mayores más cercanos.{% endblocktrans %}</p>
-      <br/>
-
-      <p>OldKare - Your family, my family. </p>
-    </div>
-  </div>
-</div>
-{% endblock %}
+  <!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>OldKare</h2>
+					<p>Your family, my family</p>
+					<ul class="actions">
+						<li><a href="/signup" class="button big special">Registro</a></li>
+						<li><a href="/sobre-nosotros" class="button big alt">¿Quiénes somos?</a></li>
+					</ul>
+				</div>
+		  </section>
+  {% endblock %}

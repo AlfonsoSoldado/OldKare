@@ -63,7 +63,7 @@ class apply(UpdateView):
 class IndexView(TemplateView):
     template_name = 'principal/index.html'
 
-class curriculumView(ListView):
+class curriculumView(DetailView):
     template_name = 'principal/curriculum.html'
     model = Curriculum
     context_object_name = 'curriculum'
