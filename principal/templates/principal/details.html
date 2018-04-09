@@ -6,8 +6,8 @@
   <div class="card-body">
     <h4 class="card-title">{{ service.name }}</h4>
     <div class="container">
-        <h6 class="card-subtitle mb-2 text-muted">Autor: </h6>
-        <p class="card-text">{{ service.author }}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Autor: </h6>
+      <p class="card-text">{{ service.author }}</p>
       <div class="row">
         <div class="col">
           <h6 class="card-subtitle mb-2 text-muted">Fecha de creación: </h6>
@@ -18,24 +18,27 @@
           <p class="card-text">{{ service.price }} €</p>
         </div>
         <div class="col order-12">
-          <h6 class="card-subtitle mb-2 text-muted">Disponibilidad: </h6>
-          <p class="card-text">{{ service.avaliability }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Solicitante: </h6>
-          <p class="card-text">{{ service.offerer }}</p>
+          <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">Información sobre el autor</button>
+          <hr/> {% if request.user.is_authenticated%}
+          <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+          <hr/>
+          <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
+          {% endif %}
         </div>
         <div class="col order-1">
           <h6 class="card-subtitle mb-2 text-muted">Descripción: </h6>
           <p class="card-text">{{ service.description }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">Disponibilidad: </h6>
+          <p class="card-text">{{ service.avaliability }}</p>
+          {% if service.author.id == request.user.id%}
+          <h6 class="card-subtitle mb-2 text-muted">Solicitantes: </h6>
+          <p class="card-text">{{ service.offerer }}</p>
+          {% endif %}
         </div>
       </div>
-      <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">Información sobre el autor</button>
-      {% if request.user.is_authenticated%}
-      <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
-      <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
-      {% endif %}
+      </br>
+      </br>
       {% if service.author.id == request.user.id%}
-    </br>
-  </br>
       <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">Editar servicio</button>
       <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">Borrar servicio</button>
       {% endif %}
