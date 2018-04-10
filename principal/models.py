@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 
 class Feedback(models.Model):
-    ranking = models.PositiveIntegerField(verbose_name=_('Ranking'), validators=[MaxValueValidator(10)])
+    ranking = models.PositiveIntegerField(verbose_name=_('Ranking'), validators=[MaxValueValidator(5)])
     description = models.TextField(verbose_name=_('Description'))
 
     def __str__(self):

@@ -91,8 +91,10 @@ class feedbackView(ListView):
     model = Feedback
     context_object_name = 'feedback'
 
-    def get_queryset(self):
-        return Feedback.objects.all()
+    def get_queryset(self, *arg, **kwargs):
+        service = Service.objects.get(pk=self.kwargs.get('pk'))
+        return service.feedback
+
 
 class feedbackUpdate(UpdateView):
     template_name = 'principal/addFeedbackForm.html'
