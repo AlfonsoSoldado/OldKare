@@ -86,10 +86,13 @@ class CurriculumDelete(DeleteView):
     model = Curriculum
     success_url = reverse_lazy('index')
 
-class feedbackView(DetailView):
+class feedbackView(ListView):
     template_name = 'principal/feedback.html'
     model = Feedback
     context_object_name = 'feedback'
+
+    def get_queryset(self):
+        return Feedback.objects.all()
 
 class feedbackUpdate(UpdateView):
     template_name = 'principal/addFeedbackForm.html'
