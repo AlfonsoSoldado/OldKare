@@ -1,14 +1,19 @@
-{% extends 'principal/base.html' %} {% block content %}
-{% load i18n %}
-  <!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h2>OldKare</h2>
-					<p>Your family, my family</p>
-					<ul class="actions">
-						<li><a href="/signup" class="button big special">Registro</a></li>
-						<li><a href="/sobre-nosotros" class="button big alt">¿Quiénes somos?</a></li>
-					</ul>
-				</div>
-		  </section>
-  {% endblock %}
+{% extends 'principal/base.html' %} {% block content %} {% load i18n %}
+<!-- Banner -->
+<section id="banner">
+	<div class="inner">
+		<h2>OldKare</h2>
+		<p>Your family, my family</p>
+		<ul class="actions">
+			{% if not request.user.is_authenticated %}
+			<li>
+				<a href="/signup" class="button big special">Registro</a>
+			</li>
+			{% endif %}
+			<li>
+				<a href="/sobre-nosotros" class="button big alt">¿Quiénes somos?</a>
+			</li>
+		</ul>
+	</div>
+</section>
+{% endblock %}

@@ -17,8 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-msgid "Name"
-msgstr "Nombre"
 #: .\OldKare\settings.py:119
 msgid "English"
 msgstr ""
@@ -27,11 +25,119 @@ msgstr ""
 msgid "Spanish"
 msgstr ""
 
-#: .\OldKare\principal\templates\principal\index.html:11
-msgid "¿Estás buscando un servicio?"
-msgstr "Are you looking for a service?"
 
-#: .\OldKare\principal\templates\principal\index.html:14
-msgid ""
-"En oldkare se encuentran los mejores cuidadores que puedas necesitar para tus mayores más cercanos."
-msgstr "In oldkareyou will find the best carers you would need for your elderly."
+
+#: .\OldKare\principal\models.py:8
+#: .\OldKare\principal\models.py:27
+msgid "Description"
+msgstr "Descripción"
+
+#: .\OldKare\principal\models.py:52
+#: .\OldKare\principal\models.py:68
+msgid "User"
+msgstr "Usuario"
+
+
+
+
+#: .\OldKare\principal\models.py:25
+msgid "Name"
+msgstr "Nombre"
+
+#: .\OldKare\principal\models.py:26
+msgid "Author"
+msgstr "Autor"
+
+#: .\OldKare\principal\models.py:28
+msgid "Created"
+msgstr "Fecha de creación"
+
+#: .\OldKare\principal\models.py:29
+msgid "Price"
+msgstr "Precio"
+
+#: .\OldKare\principal\models.py:30
+msgid "Avaliability"
+msgstr "Disponibilidad"
+
+#: .\OldKare\principal\models.py:31
+msgid "Category"
+msgstr "Categoría"
+
+#: .\OldKare\principal\models.py:32
+msgid "Offerers"
+msgstr "Solicitantes"
+
+
+
+
+
+
+#: .\OldKare\principal\models.py:53
+msgid "Birthday"
+msgstr "Fecha de nacimiento"
+
+#: .\OldKare\principal\models.py:54
+msgid "Phone"
+msgstr "Teléfono"
+
+#: .\OldKare\principal\models.py:55
+msgid "Postal address"
+msgstr "Domicilio"
+
+#: .\OldKare\principal\models.py:56
+msgid "Gender"
+msgstr "Género"
+
+#: .\OldKare\principal\models.py:57
+msgid "Occupation"
+msgstr "Profesión"
+
+#: .\OldKare\principal\models.py:58
+msgid "Photo"
+msgstr "Foto"
+
+#: .\OldKare\principal\models.py:59
+msgid "Social references"
+msgstr "Redes Sociales"
+
+
+
+
+
+
+
+#: .\OldKare\principal\models.py:69
+msgid "Personal data"
+msgstr "Datos personales"
+
+#: .\OldKare\principal\models.py:70
+msgid "Experience"
+msgstr "Experiencia"
+
+#: .\OldKare\principal\models.py:71
+msgid "Education"
+msgstr "Educación"
+
+#: .\OldKare\principal\models.py:72
+msgid "Miscellaneous"
+msgstr "Miscellaneous"
+
+
+
+
+
+
+
+
+#: .\OldKare\principal\models.py:7
+msgid "Ranking"
+msgstr "Ranking"
+
+
+
+
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:5
+msgid "Author: "
+msgstr "Autor: "

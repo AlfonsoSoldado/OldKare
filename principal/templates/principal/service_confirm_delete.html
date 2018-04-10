@@ -1,10 +1,15 @@
-
-{% if service.author.id == request.user.id%}
+{% extends 'principal/base.html' %}{% block content %} {% if service.author.id == request.user.id%}
 <form action="" method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm" />
+    <br/>
+    <br/>
+    <br/>
+    <center><p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm" /></center>
 </form>
+{% endif %} {% if not service.author.id == request.user.id%}
+<br/>
+<br/>
+<br/>
+<center><p>No tienes permiso para borrar este servicio</p></center>
 {% endif %}
-{% if not service.author.id == request.user.id%}
-    <p>No tienes permiso para borrar este servicio</p>
-{% endif %}
+{% endblock %}

@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+{% load i18n %}
 <html>
 
 <head>
@@ -31,23 +32,27 @@
       <ul>
         {% if request.user.is_authenticated%}
         <li>
-          <a href="/oldkare">Mis servicios</a>
+          <a href="/services">Mis servicios</a>
         </li>
         <li>
           <a href="/oldkare2">Servicios solicitados</a>
         </li>
         {% endif %}
         <li>
-          <a href="/oldkareall">Servicios</a>
+          <a href="/services/all">Servicios</a>
         </li>
-        <li>
+        <li class="menu-separator">
           <a href=""></a>
         </li>
         {% if request.user.is_authenticated%}
-        <button class="btn btn-outline-primary" onclick="window.location='{% url 'updateUserDetails' pk=user.userdetails.id %}'">{{request.user.username}}</button>
-        <button type="button" class="btn btn-outline-danger" onclick="window.location='{% url 'logout' %}'">Logout</button>
+        {% if request.user.userdetails%}
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'userDetails' pk=user.userdetails.id%}'">Perfil</button>
         {% else %}
-        <button class="btn btn-outline-success" onclick="window.location='{% url 'login' %}'">Login</button>
+        <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">Perfil</button>
+        {% endif %}
+        <button type="button" class="btn btn-outline-secondary" onclick="window.location='{% url 'logout' %}'">Logout</button>
+        {% else %}
+        <button class="btn btn-outline-light" onclick="window.location='{% url 'login' %}'">Login</button>
         {% endif %}
       </ul>
     </nav>
@@ -63,45 +68,50 @@
         <div class="6u">
           <div class="row collapse-at-2">
             <div class="6u">
-              <h3>Accumsan</h3>
+              <h3>Enlaces de interés</h3>
               <ul class="alt">
                 <li>
-                  <a href="#">Nascetur nunc varius</a>
+                  <a href="/services/all">Servicios</a>
                 </li>
                 <li>
-                  <a href="#">Vis faucibus sed tempor</a>
-                </li>
-                <li>
-                  <a href="#">Massa amet lobortis vel</a>
-                </li>
-                <li>
-                  <a href="#">Nascetur nunc varius</a>
+                  <a href="/sobre-nosotros">Sobre nosotros</a>
                 </li>
               </ul>
             </div>
+            {% if not request.user.is_authenticated %}
             <div class="6u">
-              <h3>Faucibus</h3>
+              <h3>Únete</h3>
               <ul class="alt">
                 <li>
-                  <a href="#">Nascetur nunc varius</a>
-                </li>
-                <li>
-                  <a href="#">Vis faucibus sed tempor</a>
-                </li>
-                <li>
-                  <a href="#">Massa amet lobortis vel</a>
-                </li>
-                <li>
-                  <a href="#">Nascetur nunc varius</a>
+                  <a href="/signup">Regístrate</a>
                 </li>
               </ul>
             </div>
+            {% endif %}
           </div>
         </div>
         <div class="6u">
-          <h2>Aliquam Interdum</h2>
-          <p>Blandit nunc tempor lobortis nunc non. Mi accumsan. Justo aliquet massa adipiscing cubilia eu accumsan id. Arcu
-            accumsan faucibus vis ultricies adipiscing ornare ut. Mi accumsan justo aliquet.</p>
+        <h2>¿Dónde nos encontramos?</h2>
+        <p>Somos un grupo de trabajo de estudiantes de la Universidad de Sevilla, con el proposito de lanzar una aplicación web con la que ayudar a las personas mayores de todas las casas.
+        </p>
+</div>
+        <div class="6u">
+          <div class="form-group">
+              <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <select class="form-control" name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go" />
+              </form>
+            </div>
           <ul class="icons">
             <li>
               <a href="#" class="icon fa-twitter">
@@ -132,7 +142,7 @@
         </div>
       </div>
       <ul class="copyright">
-        <li>&copy; OldKare. All rights reserved.</li>
+        <li>&copy; OldKare. All rights reserved. | <a href="/terminos-y-condiciones">Términos y condiciones</a></li>
       </ul>
     </div>
   </footer>

@@ -882,8 +882,8 @@
 	}
 
 	#header {
-		background: #fff;
-		color: #555f66;
+		background: #194769;
+		color: #F6F6E9;
 		cursor: default;
 		height: 3em;
 		left: 0;
@@ -896,7 +896,7 @@
 	}
 
 		#header h1 {
-			color: #666f77;
+			color: #F6F6E9;
 			font-weight: 500;
 			height: inherit;
 			left: 1.25em;
@@ -909,6 +909,11 @@
 
 			#header h1 a {
 				font-size: 1.25em;
+			}
+
+			#header h1 a:hover {
+				color: #F2855E;
+				text-decoration:none;
 			}
 
 		#header nav {
@@ -939,7 +944,7 @@
 						-o-transition: color 0.2s ease-in-out;
 						-ms-transition: color 0.2s ease-in-out;
 						transition: color 0.2s ease-in-out;
-						color: #555f66;
+						color: #F6F6E9;
 						display: inline-block;
 						text-decoration: none;
 					}
@@ -1052,8 +1057,9 @@
 /* Footer */
 
 	#footer {
-		background: #f8f8f8;
+		background: #194769;
 		padding: 4em 0 6em 0;
+		color: #F6F6E9;
 	}
 
 		#footer a {
@@ -1061,7 +1067,7 @@
 		}
 
 		#footer .copyright {
-			color: #bbb;
+			color: #F6F6E9;
 			font-size: 0.9em;
 			margin: 2em 0 0 0;
 			padding: 0;
@@ -1087,7 +1093,7 @@
 		}
 
 		.content {
-			background-color: #A4A4A4;
+			background-color: #F6F6E9;
 		}
 
 		.card-service {
@@ -1095,4 +1101,20 @@
 			padding-right: 20px !important;
 			padding-top: 20px !important;
 			padding-bottom: 20px !important;
+		}
+
+		.card-blue {
+			background-color: #fff !important;
+		}
+
+		input[type=text] {
+			background-color: #fff !important; 
+		}
+
+		select {
+			background-color: #fff !important; 
+		}
+
+		textarea {
+			background-color: #fff !important; 
 		}
