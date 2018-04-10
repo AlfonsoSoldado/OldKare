@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login'
 
-LOGIN_REDIRECT_URL = '/oldkare'
+LOGIN_REDIRECT_URL = '/services'
 
 
 # Application definition

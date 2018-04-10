@@ -118,7 +118,7 @@ def add(request):
                 avaliability=avaliability,
             ).save()
 
-            return HttpResponseRedirect('/oldkare')
+            return HttpResponseRedirect('/services')
 
     else:
         form = ServiceForm()
@@ -146,7 +146,7 @@ def register_user(request):
             email = form.cleaned_data['email']
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/add-user-details')
+            return redirect('/')
 
     else:
         form = MyRegistrationForm()

@@ -18,8 +18,9 @@
           <p class="card-text">{{ service.price }} €</p>
         </div>
         <div class="col order-12">
+            {% if service.author.userdetails%}
           <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">Información sobre el autor</button>
-          <hr/> {% if request.user.is_authenticated%}
+          <hr/> {% endif %}{% if request.user.is_authenticated%}
           <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
           <hr/>
           <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
