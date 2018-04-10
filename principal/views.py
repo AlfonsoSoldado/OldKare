@@ -283,7 +283,22 @@ def order_next(request):
 def order_done(request):
     # TODO: añadir el servicio comprado a la lista del comprador y no
     # notoficar al dueño del servicio
+    solicitante = request.user
+    order_id = request.session.get('order_id')
+    order  = get_object_or_404(Order, id=order_id)
+    service = order.service
+    service.avaliability = 0
+    service.offerer.add(solicitante)
+    service.save()
     return render(request,"principal/done.html")
 
 def order_canceled(request):
     return render(request,"principal/canceled.html")
+
+class requestedListView(LoginRequiredMixin, ListView):
+    template_name = 'principal/OldKare.html'
+    model = Service
+    context_object_name = 'services'
+
+    def get_queryset(self, *arg, **kwargs):
+        return Service.objects.filter(offerer=self.request.user)
