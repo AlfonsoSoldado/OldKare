@@ -75,3 +75,16 @@ class Curriculum(models.Model):
 
     def get_absolute_url(self):
         return u'/curriculum'
+
+class Order(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    address = models.CharField(max_length=250)
+    postal_code = models.CharField(max_length=20)
+    city = models.CharField(max_length=100)
+    service = models.ForeignKey(Service, null=True, blank=False,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=False)
+
+    def __str__(self):
+        return 'Order {}'.format(self.id)
