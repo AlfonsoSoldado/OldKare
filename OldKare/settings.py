@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'OldKare',
     'principal',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#django-paypal settings 
+PAYPAL_RECIEVER_EMAIL = 'yassin10t@gmail.com'
+PAYPAL_TEST = True

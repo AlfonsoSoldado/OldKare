@@ -4,17 +4,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect    
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView
-from .models import Service, UserDetails, Curriculum, Feedback
-from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm
+from .models import Service, UserDetails, Curriculum, Feedback, Order
+from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm, OrderCreateForm
 from django.db.models import F
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from paypal.standard.forms import PayPalPaymentsForm
+from django.conf import settings
+
+
 
 # Create your views here.
 
@@ -235,3 +239,51 @@ def addFeedback(request):
         form = FeedbackForm()
 
     return render(request, 'principal/addFeedbackForm.html', {'form': form})
+
+def order_create(request):
+    if request.method == 'POST':
+        form = OrderCreateForm(request.POST)
+        if form.is_valid():
+            
+            order = form.save()
+            # OrderItem.objects.create(order=order,
+            #                             service=service_items['service'],
+            #                             price=item['price']
+            #                             )
+            # launch asynchronous task
+            #order_created.delay(order.id)
+            # set the order in the session
+            request.session['order_id'] = order.id
+            # redirect to the payment
+            return redirect(reverse('orderNext'))
+    else:
+        form = OrderCreateForm()
+    return render(request, "principal/form.html", { 'form': form})
+
+def order_next(request):
+    order_id = request.session.get('order_id')
+    order = get_object_or_404(Order, id=order_id)
+    servicePrice = order.service.price
+    paypal_dict = {
+        "business": settings.PAYPAL_RECIEVER_EMAIL,
+        "amount": servicePrice,
+        "item_name": "service",
+        "invoice": "unique-invoice-id",
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return": request.build_absolute_uri('done'),
+        "cancel_return": request.build_absolute_uri('canceled'),
+        "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
+    }
+
+    # Create the instance.
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form}
+    return render(request, "principal/process.html",context)
+
+def order_done(request):
+    # TODO: añadir el servicio comprado a la lista del comprador y no
+    # notoficar al dueño del servicio
+    return render(request,"principal/done.html")
+
+def order_canceled(request):
+    return render(request,"principal/canceled.html")

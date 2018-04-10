@@ -1,7 +1,7 @@
 from django import forms            
 from django.contrib.auth.models import User   # fill in custom user info then save it 
 from django.contrib.auth.forms import UserCreationForm 
-from .models import UserDetails, Service, Curriculum, Feedback
+from .models import UserDetails, Service, Curriculum, Feedback, Order
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -50,3 +50,8 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = ('ranking', 'description')
+
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'email', 'address', 'postal_code', 'city','service']
