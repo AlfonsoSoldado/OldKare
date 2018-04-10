@@ -45,11 +45,11 @@
         {% if request.user.userdetails%}
         <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'userDetails' pk=user.userdetails.id%}'">Perfil</button>
         {% else %}
-        <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'addUserDetails' %}'">Perfil</button>
+        <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">Perfil</button>
         {% endif %}
-        <button type="button" class="btn btn-outline-danger" onclick="window.location='{% url 'logout' %}'">Logout</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="window.location='{% url 'logout' %}'">Logout</button>
         {% else %}
-        <button class="btn btn-outline-success" onclick="window.location='{% url 'login' %}'">Login</button>
+        <button class="btn btn-outline-light" onclick="window.location='{% url 'login' %}'">Login</button>
         {% endif %}
       </ul>
     </nav>

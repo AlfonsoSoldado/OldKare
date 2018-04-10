@@ -51,14 +51,10 @@ urlpatterns += i18n_patterns(
     path('feedback/add', views.addFeedback, name='addFeedback'),
     path('feedback/update/<int:pk>', views.feedbackUpdate.as_view(), name="feedbackUpdate"),
     path('feedback/delete/<int:pk>', views.feedbackDelete.as_view(), name='deleteFeedback'),
-<<<<<<< HEAD
     path('terminos-y-condiciones', TemplateView.as_view(template_name="principal/termsAndConditions.html")),
-=======
-    path('feedback/<int:pk>', views.feedbackView.as_view(), name='feedback'),
     url('paypal/', include(('paypal.standard.ipn.urls'))),
     path('order/next', views.order_next, name="orderNext"),
     path('order/create', views.order_create, name="createOrder"),
     path('order/done',views.order_done,name="doneOrder"),
     path('order/canceled',views.order_canceled,name="canceledOrder"),
->>>>>>> a03b5eaa2bf8575ffe55b2e009d776f664bb0d6f
 )
