@@ -25,6 +25,7 @@
           <hr/>
           <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' %}'">Dejar feedback</button>
           {% endif %}
+          {% endif %}
           <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
         </div>
         <div class="col order-1">
