@@ -93,7 +93,7 @@ class feedbackView(ListView):
 
     def get_queryset(self, *arg, **kwargs):
         service = Service.objects.get(pk=self.kwargs.get('pk'))
-        return Feedback.objects.filter(feedback__services=service)
+        return Feedback.objects.filter(service=service)
 
 
 class feedbackUpdate(UpdateView):
