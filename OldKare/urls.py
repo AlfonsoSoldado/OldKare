@@ -29,7 +29,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('', views.IndexView.as_view(), name='index'),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('oldkare2', views.requestedListView.as_view(), name='OldKare'),
+    path('services/requested', views.requestedListView.as_view(), name='OldKare'),
     path('services', views.OldKareListView.as_view(), name='OldKare'),
     path('services/all', views.OldKareAllListView.as_view(), name='OldKare'),
     path('signup', views.register_user, name='signup'),
