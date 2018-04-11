@@ -24,11 +24,12 @@
           <hr/> {% if request.user.is_authenticated and service.avaliability != 0%}
           <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">{% trans "Request service"%}</button>
           <hr/>
+          {% endif %}
           {% if request.user in service.offerer.all %}
           <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">{% trans "Publish feedback"%}</button>
           {% endif %}
           {% endif %}
-          {% endif %}
+          
           <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
         </div>
         <div class="col order-1">
