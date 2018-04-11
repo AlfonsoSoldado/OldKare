@@ -1,4 +1,5 @@
 {% extends 'principal/base.html' %}{% block content %}
+{% load i18n %}
 <br/>
 <br/>
 <br/>
@@ -6,7 +7,7 @@
   <div class="media">
     <img class="d-flex mr-3" src="../static/img/oldkare-logo.png" alt="Generic placeholder image">
     <div class="media-body">
-      <h1 class="mt-0">Terminos y condiciones de uso</h1>
+      <h1 class="mt-0">{% trans "Terms and conditions of use"%}</h1>
 <h4>INFORMACIÓN RELEVANTE</h4>
 
 <p>Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos  que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.</p>

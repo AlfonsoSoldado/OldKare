@@ -185,8 +185,9 @@ msgid "We are a working group of students from the University of Seville with th
 msgstr "Somos un grupo de trabajo de estudiantes de la Universidad de Sevilla con el propósito de lanzar una aplicación web con la que ayudar a las personas mayores de todas las casas."
 
 #: .\OldKare\principal\templates\principal\base.html:144
-msgid "Terms and conditions"
-msgstr "Términos y condiciones"
+#: .\OldKare\principal\templates\principal\termsAndConditions.html:9
+msgid "Terms and conditions of use"
+msgstr "Términos y condiciones de uso"
 
 #: .\OldKare\principal\templates\principal\about-us.html:11
 msgid "We are OldKare, a small but ambitious project that wants to help all those families who can't take care of their elderly people at home."
@@ -328,3 +329,27 @@ msgstr "Añadir curriculum"
 #: .\OldKare\principal\templates\principal\userDetailsView.html:28
 msgid "Edit details"
 msgstr "Editar detalles"
+
+#: .\OldKare\principal\models.py:81
+msgid "First name"
+msgstr "Nombre"
+
+#: .\OldKare\principal\models.py:82
+msgid "Last name"
+msgstr "Apellidos"
+
+#: .\OldKare\principal\models.py:84
+msgid "Address"
+msgstr "Dirección"
+
+#: .\OldKare\principal\models.py:85
+msgid "Postal code"
+msgstr "Código postal"
+
+#: .\OldKare\principal\models.py:86
+msgid "City"
+msgstr "Ciudad"
+
+#: .\OldKare\principal\models.py:87
+msgid "Service"
+msgstr "Servicio"

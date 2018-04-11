@@ -1111,6 +1111,10 @@
 			background-color: #fff !important; 
 		}
 
+		input[type=email] {
+			background-color: #fff !important; 
+		}
+
 		select {
 			background-color: #fff !important; 
 		}

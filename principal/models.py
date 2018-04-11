@@ -78,13 +78,13 @@ class Curriculum(models.Model):
         return u'/curriculum'
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50, verbose_name=_('First name'))
+    last_name = models.CharField(max_length=50, verbose_name=_('Last name'))
     email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
-    service = models.ForeignKey(Service, null=True, blank=False,on_delete=models.CASCADE)
+    address = models.CharField(max_length=250, verbose_name=_('Address'))
+    postal_code = models.CharField(max_length=20, verbose_name=_('Postal code'))
+    city = models.CharField(max_length=100, verbose_name=_('City'))
+    service = models.ForeignKey(Service, null=True, blank=False,on_delete=models.CASCADE, verbose_name=_('Service'))
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=False)
 
     def __str__(self):
