@@ -12,7 +12,6 @@
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
-      <button onclick="window.location='{% url 'addFeedback' %}'" type="button" class="btn btn-success">Añadir feedback</button>
       {% endif %}
     </div>
   </div>

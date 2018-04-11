@@ -224,7 +224,7 @@ def addCurriculum(request):
 
 
 @login_required
-def addFeedback(request):
+def addFeedback(request, pk):
 
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
@@ -233,10 +233,16 @@ def addFeedback(request):
             ranking = form.cleaned_data['ranking']
             description = form.cleaned_data['description']
 
-            Feedback.objects.create(
+            fed = Feedback.objects.create(
                 ranking=ranking,
                 description=description,
-            ).save()
+            )
+            
+            fed.save()
+            
+            service = Service.objects.get(pk=pk)
+            service.feedback.add(fed)
+            service.save()
 
             return HttpResponseRedirect('/')
 
