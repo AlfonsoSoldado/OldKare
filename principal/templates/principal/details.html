@@ -20,7 +20,7 @@
         </div>
         <div class="col order-12">
             {% if service.author.userdetails%}
-          <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
+          <button onclick="window.location='{% url 'userDetails' pk=service.author.userdetails.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
           <hr/> {% if request.user.is_authenticated and service.avaliability != 0%}
           <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">{% trans "Request service"%}</button>
           <hr/>
