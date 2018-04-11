@@ -236,6 +236,7 @@ msgstr "Ver detalles: "
 
 #: .\OldKare\principal\templates\principal\_OldKare_service.html:21
 #: .\OldKare\principal\templates\principal\details.html:35
+#: .\OldKare\principal\templates\principal\feedbackDetailsView.html:7
 msgid "Description: "
 msgstr "Descripción: "
 
@@ -270,6 +271,7 @@ msgstr "Información sobre el autor"
 
 #: .\OldKare\principal\templates\principal\details.html:25
 #: .\OldKare\principal\templates\principal\applyServiceForm.html:10
+#: .\OldKare\principal\templates\principal\payForm.html:11
 msgid "Request service"
 msgstr "Solicitar servicio"
 
@@ -283,18 +285,46 @@ msgid "Pay"
 msgstr "Pagar"
 
 #: .\OldKare\principal\templates\principal\addFeedbackForm.html:22
-#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:28
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:28
 msgid "Save"
 msgstr "Guardar"
 
-#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:17
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:17
 msgid "Format rules"
 msgstr "Reglas de formato"
 
-#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:18
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:18
 msgid "Place a URL to insert an image."
 msgstr "Para introducir una imagen colocar una URL."
 
-#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:11
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:11
 msgid "Edit your user details"
 msgstr "Edita tus detalles de usuario"
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:8
+msgid "User name: "
+msgstr "Nombre de usuario: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:10
+msgid "Name: "
+msgstr "Nombre: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:12
+msgid "Surname: "
+msgstr "Apellidos: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:18
+msgid "Birthdate: "
+msgstr "Fecha de nacimiento: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:20
+msgid "Occupation: "
+msgstr "Profesión: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:25
+msgid "Add curriculum"
+msgstr "Añadir curriculum"
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:28
+msgid "Edit details"
+msgstr "Editar detalles"

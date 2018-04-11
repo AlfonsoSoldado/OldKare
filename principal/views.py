@@ -269,7 +269,7 @@ def order_create(request):
             return redirect(reverse('orderNext'))
     else:
         form = OrderCreateForm()
-    return render(request, "principal/form.html", { 'form': form})
+    return render(request, "principal/payForm.html", { 'form': form})
 
 def order_next(request):
     order_id = request.session.get('order_id')

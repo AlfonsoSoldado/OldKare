@@ -1,0 +1,24 @@
+{% extends 'principal/base.html' %}
+{% load i18n %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<div class="container form-group">
+  <br />
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>{% trans "Request service"%}</h1>
+    </div>
+  </div>
+  <form method="POST">
+    <div class="form-container">
+    <div class="form-class">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% trans "Publish"%}</button>
+  </div>
+</div>
+  </form>
+</div>
+
+{% endblock %}
