@@ -155,6 +155,7 @@ msgstr "Servicios solicitados"
 
 #: .\OldKare\principal\templates\principal\base.html:42
 #: .\OldKare\principal\templates\principal\base.html:74
+#: .\OldKare\principal\templates\principal\OldKareAll.html:11
 msgid "Services"
 msgstr "Servicios"
 
@@ -199,11 +200,13 @@ msgstr "Encuenta aquí lo que necesitas, profesionales y gente de confianza, que
 msgid "Offer those people who for a moment took care of you what they deserve, the best treatment and care."
 msgstr "Ofrece a aquellas personas que por un momento cuidaron de ti lo que se merecen, el mejor trato y cuidado."
 
-#: .\OldKare\principal\templates\principal\OldKares.html:16
+#: .\OldKare\principal\templates\principal\OldKare.html:16
+#: .\OldKare\principal\templates\principal\OldKareAll.html:16
 msgid "Add service"
 msgstr "Añadir servicio"
 
-#: .\OldKare\principal\templates\principal\OldKares.html:18
+#: .\OldKare\principal\templates\principal\OldKare.html:18
+#: .\OldKare\principal\templates\principal\OldKareAll.html:18
 msgid "You must fill in your profile before creating services!"
 msgstr "¡Debes rellenar tu perfil antes de crear servicios!"
 
@@ -271,9 +274,27 @@ msgid "Request service"
 msgstr "Solicitar servicio"
 
 #: .\OldKare\principal\templates\principal\details.html:28
+#: .\OldKare\principal\templates\principal\addFeedbackForm.html:10
 msgid "Publish feedback"
 msgstr "Publicar feedback"
 
 #: .\OldKare\principal\templates\principal\applyServiceForm.html:25
 msgid "Pay"
 msgstr "Pagar"
+
+#: .\OldKare\principal\templates\principal\addFeedbackForm.html:22
+#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:28
+msgid "Save"
+msgstr "Guardar"
+
+#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:17
+msgid "Format rules"
+msgstr "Reglas de formato"
+
+#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:18
+msgid "Place a URL to insert an image."
+msgstr "Para introducir una imagen colocar una URL."
+
+#: .\OldKare\principal\templates\principal\userDetailsFormForm.html:11
+msgid "Edit your user details"
+msgstr "Edita tus detalles de usuario"
