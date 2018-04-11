@@ -255,14 +255,14 @@ msgid "Publish"
 msgstr "Publicar"
 
 #: .\OldKare\principal\templates\principal\details.html:40
-msgid "Solicitantes: "
-msgstr "Offerer: "
+msgid "Offerer: "
+msgstr "Solicitantes: "
 
-#: .\OldKare\principal\templates\principal\details.html:48
+#: .\OldKare\principal\templates\principal\details.html:50
 msgid "Edit service"
 msgstr "Editar servicio"
 
-#: .\OldKare\principal\templates\principal\details.html:49
+#: .\OldKare\principal\templates\principal\details.html:51
 msgid "Delete service"
 msgstr "Eliminar servicio"
 
@@ -354,7 +354,7 @@ msgstr "Ciudad"
 msgid "Service"
 msgstr "Servicio"
 
-#: .\OldKare\principal\templates\principal\curriculum.html:15
+#: .\OldKare\principal\templates\principal\curriculum.html:16
 msgid "Update curriculum"
 msgstr "Actualizar curriculum"
 

@@ -12,7 +12,9 @@
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
-      <button onclick="window.location='{% url 'curriculumUpdate' pk=user.curriculum.id %}'" type="button" class="btn btn-success">{% trans "Update curriculum"%}</button>
+      {% if curriculum.user.id == request.user.id%}
+      <button onclick="window.location='{% url 'curriculumUpdate' pk=curriculum.id %}'" type="button" class="btn btn-success">{% trans "Update curriculum"%}</button>
+      {% endif %}
       {% endif %}
     </div>
   </div>

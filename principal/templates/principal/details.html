@@ -37,8 +37,10 @@
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
           <p class="card-text">{{ service.avaliability }}</p>
           {% if service.author.id == request.user.id%}
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Solicitantes: "%}</h6>
-          <p class="card-text">{{ service.offerer.all }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Offerer: "%}</h6>
+          {% for o in service.offerer.all %}
+          <p class="card-text">{{ o.username }}</p>
+          {% endfor %}
           {% endif %}
         </div>
       </div>
