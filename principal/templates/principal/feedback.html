@@ -16,8 +16,12 @@
     </div>
   </div>
   <hr />
+  {% if feedback %}
   {% for f in feedback.all %}
     {% include 'principal/feedbackDetailsView.html' %}
     {% endfor %}
+    {% else %}
+    {% include 'principal/withoutFeedback.html' %}
+    {% endif %}
 </div>
 {% endblock %}

@@ -287,6 +287,7 @@ msgstr "Pagar"
 
 #: .\OldKare\principal\templates\principal\addFeedbackForm.html:22
 #: .\OldKare\principal\templates\principal\userDetailsForm.html:28
+#: .\OldKare\principal\templates\principal\updateCurriculumForm.html:22
 msgid "Save"
 msgstr "Guardar"
 
@@ -323,6 +324,7 @@ msgid "Occupation: "
 msgstr "Profesión: "
 
 #: .\OldKare\principal\templates\principal\userDetailsView.html:25
+#: .\OldKare\principal\templates\principal\updateCurriculumForm.html:10
 msgid "Add curriculum"
 msgstr "Añadir curriculum"
 
@@ -381,3 +383,11 @@ msgstr "Miscelánea: "
 #: .\OldKare\principal\templates\principal\curriculumDetailsView.html:21
 msgid "Delete curriculum"
 msgstr "Eliminar curriculum"
+
+#: .\OldKare\principal\templates\principal\withoutFeedback.html:8
+msgid "There's' no feedback yet"
+msgstr "No hay ningún feedback por ahora"
+
+#: .\OldKare\principal\templates\principal\updateCurriculumForm.html:33
+msgid "You do not have access to this page!"
+msgstr "¡No tienes acceos a esta página!"

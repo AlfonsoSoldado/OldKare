@@ -1,4 +1,4 @@
-{% extends 'principal/base.html' %} {% block content %}{% if curriculum.user.id == request.user.id%}
+{% extends 'principal/base.html' %} {% block content %}
 <br/>
 <br/>
 <br/>
@@ -23,20 +23,6 @@
   </form>
 </div>
 </div>
-{% endif %}
-{% if curriculum.user.id != request.user.id%}
-<div class="card">
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-<h2>¡No tienes acceso a esta página!</h2>
-<br/>
-<br/>
-<br/>
-<br/>
-</div>
-{% endif %}
 
 
 {% endblock %}

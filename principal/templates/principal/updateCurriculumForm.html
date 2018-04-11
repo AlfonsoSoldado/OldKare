@@ -1,0 +1,42 @@
+{% extends 'principal/base.html' %} {% block content %}{% if curriculum.user.id == request.user.id%}{% load i18n %}
+<br/>
+<br/>
+<br/>
+<div class="card">
+<div class="container form-group">
+  <br />
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>{% trans "Add curriculum"%}</h1>
+    </div>
+    <div class="col-lg-6">
+    </div>
+  </div>
+  <form method="POST">
+      <div class="form-container">
+          <div class="form-class">
+    {% csrf_token %} {{ form.as_p }}
+    </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">{% trans "Save"%}</button>
+  </form>
+</div>
+</div>
+{% endif %}
+{% if curriculum.user.id != request.user.id%}
+<div class="card">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+<h2>{% trans "You do not have access to this page!"%}</h2>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+{% endif %}
+
+
+{% endblock %}

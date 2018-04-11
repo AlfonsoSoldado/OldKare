@@ -78,7 +78,7 @@ class curriculumView(DetailView):
     context_object_name = 'curriculum'
 
 class curriculumUpdate(UpdateView):
-    template_name = 'principal/addCurriculumForm.html'
+    template_name = 'principal/updateCurriculumForm.html'
     model = Curriculum
     fields = ['personalData', 'experience', 'education', 'misc']
 
