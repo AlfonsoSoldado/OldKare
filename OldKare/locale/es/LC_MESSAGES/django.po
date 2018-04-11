@@ -353,3 +353,31 @@ msgstr "Ciudad"
 #: .\OldKare\principal\models.py:87
 msgid "Service"
 msgstr "Servicio"
+
+#: .\OldKare\principal\templates\principal\curriculum.html:15
+msgid "Update curriculum"
+msgstr "Actualizar curriculum"
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:4
+msgid "User: "
+msgstr "Usuario: "
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:6
+msgid "Personal data: "
+msgstr "Datos personales: "
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:8
+msgid "Experience: "
+msgstr "Experiencia: "
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:14
+msgid "Education: "
+msgstr "Educación: "
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:16
+msgid "Miscellaneous: "
+msgstr "Miscelánea: "
+
+#: .\OldKare\principal\templates\principal\curriculumDetailsView.html:21
+msgid "Delete curriculum"
+msgstr "Eliminar curriculum"

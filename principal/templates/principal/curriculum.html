@@ -8,11 +8,11 @@
   <br />
   <div class="row">
     <div class="col-lg-4">
-      <h1>Currículum</h1>
+      <h1>Curriculum</h1>
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
-      <button onclick="window.location='{% url 'curriculumUpdate' pk=user.curriculum.id %}'" type="button" class="btn btn-success">Actualizar currículum</button>
+      <button onclick="window.location='{% url 'curriculumUpdate' pk=user.curriculum.id %}'" type="button" class="btn btn-success">{% trans "Update curriculum"%}</button>
       {% endif %}
     </div>
   </div>
