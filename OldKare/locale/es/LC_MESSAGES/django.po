@@ -135,9 +135,145 @@ msgid "Ranking"
 msgstr "Ranking"
 
 
+#: .\OldKare\principal\templates\principal\index.html:10
+msgid "Register"
+msgstr "Registro"
 
+#: .\OldKare\principal\templates\principal\index.html:14
+#: .\OldKare\principal\templates\principal\about-us.html:9
+msgid "Who are we?"
+msgstr "¿Quiénes somos?"
 
+#: .\OldKare\principal\templates\principal\base.html:35
+#: .\OldKare\principal\templates\principal\OldKare.html:11
+msgid "My services"
+msgstr "Mis servicios"
 
-#: .\OldKare\principal\templates\principal\_OldKare_service.html:5
+#: .\OldKare\principal\templates\principal\base.html:38
+msgid "Requested services"
+msgstr "Servicios solicitados"
+
+#: .\OldKare\principal\templates\principal\base.html:42
+#: .\OldKare\principal\templates\principal\base.html:74
+msgid "Services"
+msgstr "Servicios"
+
+#: .\OldKare\principal\templates\principal\base.html:49
+#: .\OldKare\principal\templates\principal\base.html:51
+msgid "Profile"
+msgstr "Perfil"
+
+#: .\OldKare\principal\templates\principal\base.html:71
+msgid "Links of interest"
+msgstr "Enlaces de interés"
+
+#: .\OldKare\principal\templates\principal\base.html:77
+msgid "About us"
+msgstr "Sobre nosotros"
+
+#: .\OldKare\principal\templates\principal\base.html:86
+msgid "Sign up"
+msgstr "Regístrate"
+
+#: .\OldKare\principal\templates\principal\base.html:94
+msgid "Where to find us?"
+msgstr "¿Dónde encontranos?"
+
+#: .\OldKare\principal\templates\principal\base.html:95
+msgid "We are a working group of students from the University of Seville with the aim of launching a web application to help older people in all homes."
+msgstr "Somos un grupo de trabajo de estudiantes de la Universidad de Sevilla con el propósito de lanzar una aplicación web con la que ayudar a las personas mayores de todas las casas."
+
+#: .\OldKare\principal\templates\principal\base.html:144
+msgid "Terms and conditions"
+msgstr "Términos y condiciones"
+
+#: .\OldKare\principal\templates\principal\about-us.html:11
+msgid "We are OldKare, a small but ambitious project that wants to help all those families who can't take care of their elderly people at home."
+msgstr "Somos OldKare, un proyecto pequeño pero ambicioso que quiere ayudar a todas aquellas familias que no puedan ocuparse de sus personas mayores en casa."
+
+#: .\OldKare\principal\templates\principal\about-us.html:12
+msgid "Find here what you need, professionals and people you trust, who will also work closely and affectionately."
+msgstr "Encuenta aquí lo que necesitas, profesionales y gente de confianza, que además trabajarán de una forma cercana y cariñosa."
+
+#: .\OldKare\principal\templates\principal\about-us.html:13
+msgid "Offer those people who for a moment took care of you what they deserve, the best treatment and care."
+msgstr "Ofrece a aquellas personas que por un momento cuidaron de ti lo que se merecen, el mejor trato y cuidado."
+
+#: .\OldKare\principal\templates\principal\OldKares.html:16
+msgid "Add service"
+msgstr "Añadir servicio"
+
+#: .\OldKare\principal\templates\principal\OldKares.html:18
+msgid "You must fill in your profile before creating services!"
+msgstr "¡Debes rellenar tu perfil antes de crear servicios!"
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:6
+#: .\OldKare\principal\templates\principal\details.html:10
 msgid "Author: "
 msgstr "Autor: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:10
+#: .\OldKare\principal\templates\principal\details.html:14
+msgid "Publication date: "
+msgstr "Fecha de creación: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:12
+#: .\OldKare\principal\templates\principal\details.html:16
+msgid "Category: "
+msgstr "Categoría: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:14
+#: .\OldKare\principal\templates\principal\details.html:18
+msgid "Price: "
+msgstr "Precio: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:18
+msgid "See details: "
+msgstr "Ver detalles: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:21
+#: .\OldKare\principal\templates\principal\details.html:35
+msgid "Description: "
+msgstr "Descripción: "
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:23
+#: .\OldKare\principal\templates\principal\details.html:37
+msgid "Avaliability: "
+msgstr "Disponibilidad: "
+
+#: .\OldKare\principal\templates\principal\form.html:11
+msgid "Add new service"
+msgstr "Añadir nuevo servicio"
+
+#: .\OldKare\principal\templates\principal\form.html:11
+msgid "Publish"
+msgstr "Publicar"
+
+#: .\OldKare\principal\templates\principal\details.html:40
+msgid "Solicitantes: "
+msgstr "Offerer: "
+
+#: .\OldKare\principal\templates\principal\details.html:48
+msgid "Edit service"
+msgstr "Editar servicio"
+
+#: .\OldKare\principal\templates\principal\details.html:49
+msgid "Delete service"
+msgstr "Eliminar servicio"
+
+#: .\OldKare\principal\templates\principal\details.html:23
+msgid "Author information"
+msgstr "Información sobre el autor"
+
+#: .\OldKare\principal\templates\principal\details.html:25
+#: .\OldKare\principal\templates\principal\applyServiceForm.html:10
+msgid "Request service"
+msgstr "Solicitar servicio"
+
+#: .\OldKare\principal\templates\principal\details.html:28
+msgid "Publish feedback"
+msgstr "Publicar feedback"
+
+#: .\OldKare\principal\templates\principal\applyServiceForm.html:25
+msgid "Pay"
+msgstr "Pagar"

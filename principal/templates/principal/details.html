@@ -1,4 +1,5 @@
 {% extends 'principal/base.html' %}{% block content %}
+{% load i18n %}
 <br/>
 <br/>
 <br/>
@@ -6,37 +7,37 @@
   <div class="card-body">
     <h4 class="card-title">{{ service.name }}</h4>
     <div class="container">
-      <h6 class="card-subtitle mb-2 text-muted">Autor: </h6>
+      <h6 class="card-subtitle mb-2 text-muted">{% trans "Author: "%}</h6>
       <p class="card-text">{{ service.author }}</p>
       <div class="row">
         <div class="col">
-          <h6 class="card-subtitle mb-2 text-muted">Fecha de creación: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>
           <p class="card-text">{{ service.created }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Categoría: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Category: "%}</h6>
           <p class="card-text">{{ service.category }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Precio: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Price: "%}</h6>
           <p class="card-text">{{ service.price }} €</p>
         </div>
         <div class="col order-12">
             {% if service.author.userdetails%}
-          <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">Información sobre el autor</button>
+          <button onclick="window.location='{% url 'userDetails' pk=service.author.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
           <hr/> {% if request.user.is_authenticated and service.avaliability != 0%}
-          <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">Solicitar servicio</button>
+          <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">{% trans "Request service"%}</button>
           <hr/>
           {% if request.user in service.offerer.all %}
-          <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">Dejar feedback</button>
+          <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">{% trans "Publish feedback"%}</button>
           {% endif %}
           {% endif %}
           {% endif %}
           <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
         </div>
         <div class="col order-1">
-          <h6 class="card-subtitle mb-2 text-muted">Descripción: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
           <p class="card-text">{{ service.description }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">Disponibilidad: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
           <p class="card-text">{{ service.avaliability }}</p>
           {% if service.author.id == request.user.id%}
-          <h6 class="card-subtitle mb-2 text-muted">Solicitantes: </h6>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Solicitantes: "%}</h6>
           <p class="card-text">{{ service.offerer.all }}</p>
           {% endif %}
         </div>
@@ -44,8 +45,8 @@
       </br>
       </br>
       {% if service.author.id == request.user.id%}
-      <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">Editar servicio</button>
-      <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">Borrar servicio</button>
+      <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">{% trans "Edit service"%}</button>
+      <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">{% trans "Delete service"%}</button>
       {% endif %}
     </div>
   </div>

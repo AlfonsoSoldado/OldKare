@@ -7,11 +7,11 @@
 		<ul class="actions">
 			{% if not request.user.is_authenticated %}
 			<li>
-				<a href="/signup" class="button big special">Registro</a>
+				<a href="/signup" class="button big special">{% trans "Register"%}</a>
 			</li>
 			{% endif %}
 			<li>
-				<a href="/sobre-nosotros" class="button big alt">¿Quiénes somos?</a>
+				<a href="/sobre-nosotros" class="button big alt">{% trans "Who are we?"%}</a>
 			</li>
 		</ul>
 	</div>

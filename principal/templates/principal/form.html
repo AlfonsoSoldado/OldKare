@@ -8,14 +8,14 @@
   <br />
   <div class="row">
     <div class="col-lg-6">
-      <h1>Añade un nuevo servicio</h1>
+      <h1>{% trans "Add new service"%}</h1>
     </div>
   </div>
   <form method="POST">
     <div class="form-container">
     <div class="form-class">
     {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary">{% trans "Publish"%}</button>
   </div>
 </div>
   </form>

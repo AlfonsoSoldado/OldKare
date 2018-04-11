@@ -32,23 +32,23 @@
       <ul>
         {% if request.user.is_authenticated%}
         <li>
-          <a href="/services">Mis servicios</a>
+          <a href="/services">{% trans "My services"%}</a>
         </li>
         <li>
-          <a href="/oldkare2">Servicios solicitados</a>
+          <a href="/oldkare2">{% trans "Requested services"%}</a>
         </li>
         {% endif %}
         <li>
-          <a href="/services/all">Servicios</a>
+          <a href="/services/all">{% trans "Services"%}</a>
         </li>
         <li class="menu-separator">
           <a href=""></a>
         </li>
         {% if request.user.is_authenticated%}
         {% if request.user.userdetails%}
-        <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'userDetails' pk=user.userdetails.id%}'">Perfil</button>
+        <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'userDetails' pk=user.userdetails.id%}'">{% trans "Profile"%}</button>
         {% else %}
-        <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">Perfil</button>
+        <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">{% trans "Profile"%}</button>
         {% endif %}
         <button type="button" class="btn btn-outline-secondary" onclick="window.location='{% url 'logout' %}'">Logout</button>
         {% else %}
@@ -68,13 +68,13 @@
         <div class="6u">
           <div class="row collapse-at-2">
             <div class="6u">
-              <h3>Enlaces de interés</h3>
+              <h3>{% trans "Links of interest"%}</h3>
               <ul class="alt">
                 <li>
-                  <a href="/services/all">Servicios</a>
+                  <a href="/services/all">{% trans "Services"%}</a>
                 </li>
                 <li>
-                  <a href="/sobre-nosotros">Sobre nosotros</a>
+                  <a href="/sobre-nosotros">{% trans "About us"%}</a>
                 </li>
               </ul>
             </div>
@@ -83,7 +83,7 @@
               <h3>Únete</h3>
               <ul class="alt">
                 <li>
-                  <a href="/signup">Regístrate</a>
+                  <a href="/signup">{% trans "Sign up"%}</a>
                 </li>
               </ul>
             </div>
@@ -91,9 +91,8 @@
           </div>
         </div>
         <div class="6u">
-        <h2>¿Dónde nos encontramos?</h2>
-        <p>Somos un grupo de trabajo de estudiantes de la Universidad de Sevilla, con el proposito de lanzar una aplicación web con la que ayudar a las personas mayores de todas las casas.
-        </p>
+        <h2>{% trans "Where to find us?"%}</h2>
+        <p>{% trans "We are a working group of students from the University of Seville with the aim of launching a web application to help older people in all homes."%}</p>
 </div>
         <div class="6u">
           <div class="form-group">
@@ -142,7 +141,7 @@
         </div>
       </div>
       <ul class="copyright">
-        <li>&copy; OldKare. All rights reserved. | <a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+        <li>&copy; OldKare. All rights reserved. | <a href="/terminos-y-condiciones">{% trans "Terms and conditions"%}</a></li>
       </ul>
     </div>
   </footer>

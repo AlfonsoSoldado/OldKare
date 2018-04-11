@@ -8,14 +8,14 @@
   <br />
   <div class="row">
     <div class="col-lg-4"> 
-      <h1>Mis servicios</h1>
+      <h1>{% trans "My services"%}</h1>
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}
       {% if request.user.userdetails%}
-      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">Añadir servicio</button>
+      <button onclick="window.location='{% url 'add' %}'" type="button" class="btn btn-success">{% trans "Add service"%}</button>
       {% else %}
-      <h4>¡Debes rellenar tu perfil antes de crear servicios!</h4>
+      <h4>{% trans "You must fill in your profile before creating services!"%}</h4>
       {% endif %}
       {% endif %}
     </div>
