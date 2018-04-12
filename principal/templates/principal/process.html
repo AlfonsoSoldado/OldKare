@@ -1,8 +1,17 @@
-{% extends "principal/applyServiceForm.html" %}
-
-{% block title %}Pay using PayPal{% endblock %}
-
+{% extends 'principal/base.html' %} 
 {% block content %}
-    <h1>Pay using PayPal</h1>
-    {{ form.render }}
-{% endblock %}
+
+<section id="banner">
+    <div class="inner">
+        <h1>Pay using PayPal</h1>
+        <div class="p-3 bg"></div>{{ form.render }}</div>
+        <ul class="actions">
+                <li>
+                </li>
+                <li>
+                </li>
+            </ul>
+    </div>
+</section>
+
+    {% endblock %} {% load i18n %}

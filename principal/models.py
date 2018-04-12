@@ -27,7 +27,7 @@ class Service(models.Model):
     description = models.TextField(verbose_name=_('Description'))
     created = models.DateField(verbose_name=_('Created'), auto_now_add=True)
     price = models.DecimalField(verbose_name=_('Price'), max_digits=20, decimal_places=2)
-    avaliability = models.PositiveIntegerField(verbose_name=_('Avaliability'), validators=[MaxValueValidator(10)])
+    avaliability =  models.BooleanField(default=1)
     category = models.CharField(verbose_name=_('Category'), max_length=50, choices=CATEGORY_CHOICES)
     offerer = models.ManyToManyField(User, related_name="offerer", blank=True, verbose_name=_('Offerers'))
     feedback = models.ManyToManyField(Feedback)

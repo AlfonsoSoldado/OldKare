@@ -43,6 +43,7 @@ urlpatterns += i18n_patterns(
     path('service/update/<int:pk>', views.updateService.as_view(), name="updateService"),
     path('service/delete/<int:pk>', views.ServiceDelete.as_view(), name='deleteService'),
     path('service/apply/<int:pk>', views.apply.as_view(), name="apply"),
+    path('service/pay/<int:pk>', views.pay, name='payService'),
     path('sobre-nosotros', TemplateView.as_view(template_name="principal/about-us.html")),
     path('curriculum/<int:pk>', views.curriculumView.as_view(), name='curriculum'),
     path('curriculum/add', views.addCurriculum, name="addCurriculum"),
@@ -54,8 +55,6 @@ urlpatterns += i18n_patterns(
     path('feedback/delete/<int:pk>', views.feedbackDelete.as_view(), name='deleteFeedback'),
     path('terminos-y-condiciones', TemplateView.as_view(template_name="principal/termsAndConditions.html")),
     url('paypal/', include(('paypal.standard.ipn.urls'))),
-    path('order/next', views.order_next, name="orderNext"),
-    path('order/create', views.order_create, name="createOrder"),
-    path('order/done',views.order_done,name="doneOrder"),
-    path('order/canceled',views.order_canceled,name="canceledOrder"),
+    path('service/pay/done',views.order_done,name="doneOrder"),
+    path('service/pay/canceled',views.order_canceled,name="canceledOrder"),
 )

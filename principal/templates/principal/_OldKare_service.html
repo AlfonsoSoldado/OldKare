@@ -21,7 +21,14 @@
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
           <p class="card-text">{{ service.description|truncatechars:100 }}</p>
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
-          <p class="card-text">{{ service.avaliability }}</p>
+          
+          {% if service.avaliability == 0 %}
+           <p class="card-text">No</p>
+          {% endif %}
+          {% if service.avaliability == 1%}
+            <p class="card-text">Si</p>
+          {% endif %}
+          
         </div>
       </div>
       

@@ -22,7 +22,8 @@
             {% if service.author.userdetails%}
           <button onclick="window.location='{% url 'userDetails' pk=service.author.userdetails.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
           <hr/> {% if request.user.is_authenticated and service.avaliability != 0%}
-          <button class="btn btn-primary" onclick="window.location='{% url 'apply' pk=service.id %}'">{% trans "Request service"%}</button>
+          <button class="btn btn-primary" onclick="window.location='{% url 'payService' pk=service.id %}'">{% trans "Request service"%}</button>
+
           <hr/>
           {% endif %}
           {% if request.user in service.offerer.all %}
@@ -36,7 +37,12 @@
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
           <p class="card-text">{{ service.description }}</p>
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
-          <p class="card-text">{{ service.avaliability }}</p>
+          {% if service.avaliability == 0 %}
+          <p class="card-text">No</p>
+          {%endif%}
+          {% if service.avaliability == 1 %}
+           <p class="card-text">Si</p>
+          {%endif%}
           {% if service.author.id == request.user.id%}
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Offerer: "%}</h6>
           {% for o in service.offerer.all %}

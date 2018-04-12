@@ -8,7 +8,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect    
 from django.contrib import auth                 
 from principal.forms import MyRegistrationForm
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, View
 from .models import Service, UserDetails, Curriculum, Feedback, Order
 from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm, OrderCreateForm
 from django.db.models import F
@@ -34,6 +34,8 @@ class OldKareAllListView(ListView):
     template_name = 'principal/OldKareAll.html'
     model = Service
     context_object_name = 'services'
+    def get_queryset(self, *arg, **kwargs):
+        return Service.objects.all().order_by('-created')
 
 class ServiceDetailView(DetailView):
     template_name = 'principal/details.html'
@@ -105,6 +107,31 @@ class feedbackDelete(DeleteView):
     model = Feedback
     success_url = reverse_lazy('index')
 
+class ServicePay(View):
+    model = Service
+    success_url = reverse_lazy('index')
+
+@login_required
+def pay(request, pk):
+
+        service = get_object_or_404(Service, pk=pk)
+        servicePrice = service.price
+        request.session['service_id'] = service.id
+        paypal_dict = {
+        "business": settings.PAYPAL_RECIEVER_EMAIL,
+        "amount": servicePrice,
+        "item_name": "service",
+        "invoice": "unique-invoice-id",
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return": request.build_absolute_uri('done'),
+        "cancel_return": request.build_absolute_uri('canceled'),
+        "custom": "premium_plan",  
+        }
+        form = PayPalPaymentsForm(initial=paypal_dict)
+        context = {"form": form}
+        return render(request, "principal/process.html",context)
+
+
 @login_required
 def add(request):
 
@@ -116,7 +143,6 @@ def add(request):
             description = form.cleaned_data['description']
             category = form.cleaned_data['category']
             price = form.cleaned_data['price']
-            avaliability = form.cleaned_data['avaliability']
 
             Service.objects.create(
                 name=name,
@@ -124,7 +150,7 @@ def add(request):
                 description=description,
                 category=category,
                 price=price,
-                avaliability=avaliability,
+                avaliability=1,
             ).save()
 
             return HttpResponseRedirect('/services')
@@ -251,60 +277,21 @@ def addFeedback(request, pk):
 
     return render(request, 'principal/addFeedbackForm.html', {'form': form})
 
-def order_create(request):
-    if request.method == 'POST':
-        form = OrderCreateForm(request.POST)
-        if form.is_valid():
-            
-            order = form.save()
-            # OrderItem.objects.create(order=order,
-            #                             service=service_items['service'],
-            #                             price=item['price']
-            #                             )
-            # launch asynchronous task
-            #order_created.delay(order.id)
-            # set the order in the session
-            request.session['order_id'] = order.id
-            # redirect to the payment
-            return redirect(reverse('orderNext'))
-    else:
-        form = OrderCreateForm()
-    return render(request, "principal/payForm.html", { 'form': form})
-
-def order_next(request):
-    order_id = request.session.get('order_id')
-    order = get_object_or_404(Order, id=order_id)
-    servicePrice = order.service.price
-    paypal_dict = {
-        "business": settings.PAYPAL_RECIEVER_EMAIL,
-        "amount": servicePrice,
-        "item_name": "service",
-        "invoice": "unique-invoice-id",
-        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
-        "return": request.build_absolute_uri('done'),
-        "cancel_return": request.build_absolute_uri('canceled'),
-        "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
-    }
-
-    # Create the instance.
-    form = PayPalPaymentsForm(initial=paypal_dict)
-    context = {"form": form}
-    return render(request, "principal/process.html",context)
 
 def order_done(request):
-    # TODO: añadir el servicio comprado a la lista del comprador y no
-    # notoficar al dueño del servicio
     solicitante = request.user
-    order_id = request.session.get('order_id')
-    order  = get_object_or_404(Order, id=order_id)
-    service = order.service
+    service_id = request.session.get('service_id')
+    service  = get_object_or_404(Service, id=service_id)
+    
     service.avaliability = 0
     service.offerer.add(solicitante)
     service.save()
-    return render(request,"principal/done.html")
+    return HttpResponseRedirect('/services/requested')
 
 def order_canceled(request):
-    return render(request,"principal/canceled.html")
+    service_id = request.session.get('service_id')
+    url = "/service/"+str(service_id)
+    return HttpResponseRedirect(url)
 
 class requestedListView(LoginRequiredMixin, ListView):
     template_name = 'principal/OldKare.html'

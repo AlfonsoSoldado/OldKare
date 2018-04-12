@@ -396,6 +396,7 @@ msgstr "No hay ningún feedback por ahora"
 msgid "You do not have access to this page!"
 msgstr "¡No tienes acceos a esta página!"
 
+
 #: .\OldKare\principal\templates\principal\base.html:117
 msgid "Join us"
 msgstr "Únete"
