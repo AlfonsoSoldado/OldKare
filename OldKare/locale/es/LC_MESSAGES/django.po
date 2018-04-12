@@ -323,12 +323,16 @@ msgstr "Fecha de nacimiento: "
 msgid "Occupation: "
 msgstr "Profesión: "
 
-#: .\OldKare\principal\templates\principal\userDetailsView.html:25
+#: .\OldKare\principal\templates\principal\userDetailsView.html:23
+msgid "Phone: "
+msgstr "Teléfono: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:29
 #: .\OldKare\principal\templates\principal\updateCurriculumForm.html:10
 msgid "Add curriculum"
 msgstr "Añadir curriculum"
 
-#: .\OldKare\principal\templates\principal\userDetailsView.html:28
+#: .\OldKare\principal\templates\principal\userDetailsView.html:32
 msgid "Edit details"
 msgstr "Editar detalles"
 

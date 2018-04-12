@@ -19,6 +19,10 @@
                     <p class="card-text">{{ userDetails.birthday }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">{% trans "Occupation: "%}</h6>
                     <p class="card-text">{{ userDetails.occupation }}</p>
+                    {% if request.user.is_authenticated%}
+                    <h6 class="card-subtitle mb-2 text-muted">{% trans "Phone: "%}</h6>
+                    <p class="card-text">{{ userDetails.phone }}</p>
+                    {% endif %}
                     {% if userDetails.user.curriculum%}
                     <button class="btn btn-outline-success" onclick="window.location='{% url 'curriculum' pk=userDetails.user.curriculum.id %}'">Curriculum</button>
                     {% else %}
