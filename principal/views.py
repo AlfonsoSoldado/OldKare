@@ -101,7 +101,7 @@ class feedbackView(ListView):
 class feedbackUpdate(UpdateView):
     template_name = 'principal/addFeedbackForm.html'
     model = Feedback
-    fields = ['ranking', 'description']
+    fields = ['rate', 'description']
 
 class feedbackDelete(DeleteView):
     model = Feedback
@@ -256,11 +256,11 @@ def addFeedback(request, pk):
         form = FeedbackForm(request.POST)
 
         if form.is_valid():
-            ranking = form.cleaned_data['ranking']
+            rate = form.cleaned_data['rate']
             description = form.cleaned_data['description']
 
             fed = Feedback.objects.create(
-                ranking=ranking,
+                rate=rate,
                 description=description,
             )
             

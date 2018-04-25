@@ -9,6 +9,8 @@
     <div class="container">
       <h6 class="card-subtitle mb-2 text-muted">{% trans "Author: "%}</h6>
       <p class="card-text">{{ service.author }}</p>
+      <img class="d-flex mr-3 profile-photo" src="{{service.author.userdetails.photo}}" alt="Profile photo">
+      <br/>
       <div class="row">
         <div class="col">
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>

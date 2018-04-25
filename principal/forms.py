@@ -49,7 +49,7 @@ class CurriculumForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ('ranking', 'description')
+        fields = ('rate', 'description')
 
 class OrderCreateForm(forms.ModelForm):
     class Meta:

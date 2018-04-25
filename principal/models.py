@@ -4,11 +4,11 @@ from django.core.validators import RegexValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 
 class Feedback(models.Model):
-    ranking = models.PositiveIntegerField(verbose_name=_('Ranking'), validators=[MaxValueValidator(5)])
+    rate = models.PositiveIntegerField(verbose_name=_('Rate'), validators=[MaxValueValidator(5)])
     description = models.TextField(verbose_name=_('Description'))
 
     def __str__(self):
-        return f'{self.ranking}'
+        return f'{self.rate}'
 
     def get_absolute_url(self):
         return u'/'
