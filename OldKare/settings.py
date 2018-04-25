@@ -78,6 +78,13 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    # Put your context processors here
+
+    'django.core.context_processors.request',
+)
+
 WSGI_APPLICATION = 'OldKare.wsgi.application'
 
 

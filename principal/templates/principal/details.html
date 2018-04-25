@@ -53,6 +53,36 @@
       </div>
       </br>
       </br>
+
+      <div id="share-buttons">
+        
+        <!-- Email -->
+        <a href="mailto:?Subject=OldKare&amp;Body=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare! http://oldkareispp.pythonanywhere.com{{request.get_full_path}}">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+        </a>
+     
+        <!-- Facebook -->
+        <a href="http://www.facebook.com/sharer.php?u=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+        </a>
+        
+        <!-- Google+ -->
+        <a href="https://plus.google.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+        </a>
+        
+        <!-- LinkedIn -->
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+        </a>
+         
+        <!-- Twitter -->
+        <a href="https://twitter.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}&amp;text=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare!&amp;hashtags=OldKare" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+        </a>
+    
+    </div>
+        
       {% if service.author.id == request.user.id%}
       <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">{% trans "Edit service"%}</button>
       <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">{% trans "Delete service"%}</button>
