@@ -44,9 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'OldKare',
-    'principal',
     'paypal.standard.ipn',
+    'principal',
+    'postman',
 ]
+
+POSTMAN_AUTO_MODERATE_AS = True
+POSTMAN_QUICKREPLY_QUOTE_BODY = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

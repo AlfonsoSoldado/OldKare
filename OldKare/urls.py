@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import url
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
@@ -57,4 +58,7 @@ urlpatterns += i18n_patterns(
     url('paypal/', include(('paypal.standard.ipn.urls'))),
     path('service/pay/done',views.order_done,name="doneOrder"),
     path('service/pay/canceled',views.order_canceled,name="canceledOrder"),
+    url(r'^messages/', include('postman.urls', namespace='postman')),
+    
+
 )
