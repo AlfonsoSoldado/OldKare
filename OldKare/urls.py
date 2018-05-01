@@ -59,6 +59,6 @@ urlpatterns += i18n_patterns(
     path('service/pay/done',views.order_done,name="doneOrder"),
     path('service/pay/canceled',views.order_canceled,name="canceledOrder"),
     url(r'^messages/', include('postman.urls', namespace='postman')),
-    
+    path('search/', views.search, name='search'),
 
 )

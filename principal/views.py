@@ -10,17 +10,19 @@ from django.contrib import auth
 from principal.forms import MyRegistrationForm
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, View
 from .models import Service, UserDetails, Curriculum, Feedback, Order
-from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm, OrderCreateForm
+from .forms import ServiceForm, UserDetailsForm, CurriculumForm, FeedbackForm, OrderCreateForm, ServiceFilter
 from django.db.models import F
 from django.contrib.auth.models import User
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy, reverse
 from paypal.standard.forms import PayPalPaymentsForm
 from django.conf import settings
+from django.shortcuts import render
 
-
-
-# Create your views here.
+def search(request):
+    service_list = Service.objects.all()
+    service_filter = ServiceFilter(request.GET, queryset=service_list)
+    return render(request, 'principal/service_list.html', {'filter': service_filter})
 
 class OldKareListView(LoginRequiredMixin, ListView):
     template_name = 'principal/OldKare.html'

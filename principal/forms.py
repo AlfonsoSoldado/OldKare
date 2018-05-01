@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User   # fill in custom user info then save it 
 from django.contrib.auth.forms import UserCreationForm 
 from .models import UserDetails, Service, Curriculum, Feedback, Order
+import django_filters
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -55,3 +56,12 @@ class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['first_name', 'last_name', 'email', 'address', 'postal_code', 'city','service']
+
+class ServiceFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gt')
+    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lt')
+
+    class Meta:
+        model = Service
+        fields = ['name']

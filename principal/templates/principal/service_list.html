@@ -1,0 +1,17 @@
+{% extends 'principal/base.html' %}
+{% load i18n %}
+{% block content %}
+<br/>
+<br/>
+<br/>
+<div class="container">
+  <br />
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+    {% for service in filter.qs %}
+      {% include 'principal/_OldKare_service.html' %}
+    {% endfor %}
+</div>
+{% endblock %}
