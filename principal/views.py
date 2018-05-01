@@ -28,6 +28,7 @@ class OldKareListView(LoginRequiredMixin, ListView):
     template_name = 'principal/OldKare.html'
     model = Service
     context_object_name = 'services'
+    paginate_by = 5
 
     def get_queryset(self, *arg, **kwargs):
         return Service.objects.filter(author=self.request.user)
@@ -36,6 +37,7 @@ class OldKareAllListView(ListView):
     template_name = 'principal/OldKareAll.html'
     model = Service
     context_object_name = 'services'
+    paginate_by = 2
     def get_queryset(self, *arg, **kwargs):
         return Service.objects.all().order_by('-created')
 
