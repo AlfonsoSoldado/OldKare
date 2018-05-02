@@ -1,17 +1,58 @@
-{% extends 'principal/base.html' %}{% block content %}
-{% load i18n %}
+{% extends 'principal/base.html' %}{% block content %} {% load i18n %}
 <br/>
 <br/>
 <br/>
+
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">{{ service.name }}</h4>
     <div class="container">
-      <h6 class="card-subtitle mb-2 text-muted">{% trans "Author: "%}</h6>
-      <p class="card-text">{{ service.author }}</p>
-      <img class="d-flex mr-3 profile-photo" src="{{service.author.userdetails.photo}}" alt="Profile photo"  width="200">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-6">
+         
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
       <br/>
       <div class="row">
+        <div class="col">
+            {% if service.author.userdetails and request.user.is_authenticated and service.avaliability != 0%}
+            <center><button class="btn btn-primary" onclick="window.location='{% url 'payService' pk=service.id %}'">{% trans "Request service"%}</button></center>
+            <br/>
+            {% endif %}
+          <div class="profile-card">
+            <img src="{{service.author.userdetails.photo}}" alt="Profile Photo" style="width:200px">
+            <br/>
+            <br/>
+            <h1>{{service.author.username}}</h1>
+            <p class="title">{{service.author.first_name}} {{service.author.last_name}}</p>
+            {% if service.author.userdetails%}
+            <p>
+              <button onclick="window.location='{% url 'userDetails' pk=service.author.userdetails.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-5">
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Name: "%}</h6>
+          <p class="card-text">{{ service.name }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
+          <p class="card-text">{{ service.description }}</p>
+          {% if service.author.id == request.user.id%}
+          <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">{% trans "Edit service"%}</button>
+          <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">{% trans "Delete service"%}</button>
+          <br/>
+          <br/>
+          {% if service.author.userdetails and request.user in service.offerer.all %}
+          <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">{% trans "Publish feedback"%}</button>
+          {% endif %}
+          <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
+          {% endif %}
+        </div>
         <div class="col">
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>
           <p class="card-text">{{ service.created }}</p>
@@ -19,77 +60,51 @@
           <p class="card-text">{{ service.category }}</p>
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Price: "%}</h6>
           <p class="card-text">{{ service.price }} €</p>
-        </div>
-        <div class="col order-12">
-            {% if service.author.userdetails%}
-          <button onclick="window.location='{% url 'userDetails' pk=service.author.userdetails.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
-          <hr/> {% if request.user.is_authenticated and service.avaliability != 0%}
-          <button class="btn btn-primary" onclick="window.location='{% url 'payService' pk=service.id %}'">{% trans "Request service"%}</button>
-
-          <hr/>
-          {% endif %}
-          {% if request.user in service.offerer.all %}
-          <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">{% trans "Publish feedback"%}</button>
-          {% endif %}
-          {% endif %}
-          
-          <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
-        </div>
-        <div class="col order-1">
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
-          <p class="card-text">{{ service.description }}</p>
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
           {% if service.avaliability == 0 %}
           <p class="card-text">No</p>
-          {%endif%}
-          {% if service.avaliability == 1 %}
-           <p class="card-text">Si</p>
-          {%endif%}
-          {% if service.author.id == request.user.id%}
+          {%endif%} {% if service.avaliability == 1 %}
+          <p class="card-text">Si</p>
+          {%endif%} {% if service.author.id == request.user.id%}
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Offerer: "%}</h6>
           {% for o in service.offerer.all %}
           <p class="card-text">{{ o.username }}</p>
-          {% endfor %}
-          {% endif %}
+          {% endfor %} {% endif %}
+        </div>
+        <div id="share-buttons">
+
+          <!-- Email -->
+          <a href="mailto:?Subject=OldKare&amp;Body=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare! http://oldkareispp.pythonanywhere.com{{request.get_full_path}}">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+          </a>
+
+          <!-- Facebook -->
+          <a href="http://www.facebook.com/sharer.php?u=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+          </a>
+
+          <!-- Google+ -->
+          <a href="https://plus.google.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}"
+            target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+          </a>
+
+          <!-- Twitter -->
+          <a href="https://twitter.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}&amp;text=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare!&amp;hashtags=OldKare"
+            target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+          </a>
         </div>
       </div>
-      </br>
-      </br>
+    </div>
 
-      <div id="share-buttons">
-        
-        <!-- Email -->
-        <a href="mailto:?Subject=OldKare&amp;Body=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare! http://oldkareispp.pythonanywhere.com{{request.get_full_path}}">
-            <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
-        </a>
-     
-        <!-- Facebook -->
-        <a href="http://www.facebook.com/sharer.php?u=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-        </a>
-        
-        <!-- Google+ -->
-        <a href="https://plus.google.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-        </a>
-        
-        <!-- LinkedIn -->
-        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
-        </a>
-         
-        <!-- Twitter -->
-        <a href="https://twitter.com/share?url=http://oldkareispp.pythonanywhere.com{{request.get_full_path}}&amp;text=¡Mira%20este%20servicio%20que%20se%20está%20ofreciendo%20en%20OldKare!&amp;hashtags=OldKare" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-        </a>
-    
-    </div>
-        
-      {% if service.author.id == request.user.id%}
-      <button class="btn btn-outline-success" onclick="window.location='{% url 'updateService' pk=service.id %}'">{% trans "Edit service"%}</button>
-      <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">{% trans "Delete service"%}</button>
-      {% endif %}
-    </div>
-  </div>
-</div>
-{% endblock %}
+
+
+
+
+    {% endblock %}

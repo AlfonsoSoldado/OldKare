@@ -3,33 +3,43 @@
   <div class="card-body">
     <h4 class="card-title">{{ service.name }}</h4>
     <div class="container">
-        <h6 class="card-subtitle mb-2 text-muted">{% trans "Author: "%}</h6>
-        <p class="card-text">{{ service.author }}</p>
-        <img class="d-flex mr-3 profile-photo" src="{{service.author.userdetails.photo}}" alt="Profile photo" width="200" >
-        <br/>
       <div class="row"> 
         <div class="col">
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>
-          <p class="card-text">{{ service.created }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Category: "%}</h6>
-          <p class="card-text">{{ service.category }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Price: "%}</h6>
-          <p class="card-text">{{ service.price }} €</p>
+            <div class="profile-card">
+                <img src="{{service.author.userdetails.photo}}" alt="Profile Photo" style="width:200px">
+                <br/>
+                <br/>
+                <h1>{{service.author.username}}</h1>
+                <p class="title">{{service.author.first_name}} {{service.author.last_name}}</p>
+                {% if service.author.userdetails%}
+                <p>
+                  <button onclick="window.location='{% url 'userDetails' pk=service.author.userdetails.id %}'" class="btn btn-dark">{% trans "Author information"%}</button>
+                </p>
+                {% endif %}
+              </div>
         </div>
         <div class="col order-12">
+            <h6 class="card-subtitle mb-2 text-muted">{% trans "Price: "%}</h6>
+            <p class="card-text">{{ service.price }} €</p>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
+          
+            {% if service.avaliability == 0 %}
+             <p class="card-text">No</p>
+            {% endif %}
+            {% if service.avaliability == 1%}
+              <p class="card-text">Si</p>
+            {% endif %}
           <button onclick="window.location='{% url 'details' pk=service.id %}'" class="btn btn-primary">{% trans "See details"%}</button>
         </div>
         <div class="col order-1">
+            <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>
+            <p class="card-text">{{ service.created }}</p>
+            <h6 class="card-subtitle mb-2 text-muted">{% trans "Category: "%}</h6>
+            <p class="card-text">{{ service.category }}</p>
+
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
           <p class="card-text">{{ service.description|truncatechars:100 }}</p>
-          <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
-          
-          {% if service.avaliability == 0 %}
-           <p class="card-text">No</p>
-          {% endif %}
-          {% if service.avaliability == 1%}
-            <p class="card-text">Si</p>
-          {% endif %}
+
           
         </div>
       </div>
