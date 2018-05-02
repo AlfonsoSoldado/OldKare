@@ -58,9 +58,9 @@ class OrderCreateForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email', 'address', 'postal_code', 'city','service']
 
 class ServiceFilter(django_filters.FilterSet):
-    name = django_filters.CharFilter(lookup_expr='icontains')
-    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gt')
-    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lt')
+    name = django_filters.CharFilter(lookup_expr='icontains', label='Name')
+    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gt', label="Min price")
+    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lt', label="Max price")
 
     class Meta:
         model = Service

@@ -58,6 +58,15 @@ class OldKareAllListView(ListView):
     def get_queryset(self, *arg, **kwargs):
         return Service.objects.all().order_by('-created')
 
+class requestedListView(LoginRequiredMixin, ListView):
+    template_name = 'principal/OldKare.html'
+    model = Service
+    context_object_name = 'services'
+    paginate_by = 2
+
+    def get_queryset(self, *arg, **kwargs):
+        return Service.objects.filter(offerer=self.request.user)
+
 class ServiceDetailView(DetailView):
     template_name = 'principal/details.html'
     model = Service
@@ -313,11 +322,3 @@ def order_canceled(request):
     service_id = request.session.get('service_id')
     url = "/service/"+str(service_id)
     return HttpResponseRedirect(url)
-
-class requestedListView(LoginRequiredMixin, ListView):
-    template_name = 'principal/OldKare.html'
-    model = Service
-    context_object_name = 'services'
-
-    def get_queryset(self, *arg, **kwargs):
-        return Service.objects.filter(offerer=self.request.user)
