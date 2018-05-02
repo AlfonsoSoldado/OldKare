@@ -1138,14 +1138,14 @@
 			text-align: center;
 			font-family: arial;
 			background-color: #F6F6E9;
-		  }
+		}
 		  
-		  .title {
+		.title {
 			color: grey;
 			font-size: 18px;
-		  }
+		}
 		  
-		  .profile-card button {
+		.profile-card button {
 			border: none;
 			outline: 0;
 			display: inline-block;
@@ -1156,14 +1156,35 @@
 			cursor: pointer;
 			width: 100%;
 			font-size: 18px;
-		  }
+		}
 		  
-		  a {
+		a {
 			text-decoration: none;
 			font-size: 22px;
 			color: black;
-		  }
+		}
 		  
-		  button:hover, a:hover {
+		button:hover, a:hover {
 			opacity: 0.7;
-		  }
+		}
+
+		.ec-stars-wrapper {
+			font-size: 0;
+			display: inline-block;
+		}
+		.ec-stars-wrapper p {
+			text-decoration: none;
+			display: inline-block;
+			font-size: 32px;
+			font-size: 2rem;
+			color: #194769;
+		}
+
+		.message-card {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			max-width: 500px;
+			padding: 20px;
+			text-align: center;
+			font-family: arial;
+			background-color: #ffffff;
+		}

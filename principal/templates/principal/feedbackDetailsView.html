@@ -3,7 +3,23 @@
     <div class="card-body">
         <div class="container">
             <h6 class="card-subtitle mb-2 text-muted">Rate: </h6>
-            <p class="card-text">{{ f.rate }}</p>
+            <div class="ec-stars-wrapper">
+            {%if f.rate == 1%}
+            <p>&#9733;</p>
+            {%endif%}
+            {%if f.rate == 2%}
+            <p>&#9733;&#9733;</p>
+            {%endif%}
+            {%if f.rate == 3%}
+            <p>&#9733;&#9733;&#9733;</p>
+            {%endif%}
+            {%if f.rate == 4%}
+            <p>&#9733;&#9733;&#9733;&#9733;</p>
+            {%endif%}
+            {%if f.rate == 5%}
+            <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+            {%endif%}
+            </div>
             <h6 class="card-subtitle mb-2 text-muted">{% trans "Description: "%}</h6>
             <p class="card-text">{{ f.description }}</p>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -13,3 +29,4 @@
         </div>
     </div>
 </div>
+<br/>
