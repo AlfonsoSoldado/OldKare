@@ -24,10 +24,25 @@
   <form method="POST">
       <div class="form-container">
           <div class="form-class">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">{% trans "Save"%}</button>
-    </div>
-    </div>
+              {% if not request.user.userdetails.id %}
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Birthdate: "%} {% csrf_token %} {{ form.birthday }}</h6> 
+              <br/>
+              {% endif %}
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Phone: "%} {% csrf_token %} {{ form.phone }} </h6>
+              <br/>
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Postal address: "%} {% csrf_token %} {{ form.postalAddress }} </h6>
+              <br/>
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Gender: "%} {% csrf_token %} {{ form.gender }} </h6>
+              <br/>
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Occupation: "%} {% csrf_token %} {{ form.occupation }}</h6>
+              <br/>
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Photo: "%} {% csrf_token %} {{ form.photo }} </h6>
+              <br/>
+              <h6 class="card-subtitle mb-2 text-muted">{% trans "Social references: "%} {% csrf_token %} {{ form.socialReferences }} </h6>
+              <br/>
+              <button type="submit" class="btn btn-primary">{% trans "Save"%}</button>
+          </div>
+      </div>
   </form>
 </div>
 </div>
