@@ -24,7 +24,7 @@
   <form method="POST">
       <div class="form-container">
           <div class="form-class">
-              {% if userDetails.id is None %}
+              {% if not request.user.userdetails.id %}
               <h6 class="card-subtitle mb-2 text-muted">{% trans "Birthdate: "%} {% csrf_token %} {{ form.birthday }}</h6> 
               <br/>
               {% endif %}
