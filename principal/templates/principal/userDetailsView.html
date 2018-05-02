@@ -34,15 +34,14 @@
                     {% endif %}
                 </div>
                 <div class="col order-12">
-                    
+                        {% if request.user.is_authenticated%}
+                        {% if request.user.userdetails.id == userDetails.id%}
+                        <a class="btn btn-info" href="/email">Mensajes</a>
+                        {% endif %}
+                        {% endif %}
                 </div>
                 <div class="col order-1">
                         <img class="d-flex mr-3 profile-photo" src="{{userDetails.photo}}" alt="Profile photo"  width="200">
-                        {% if request.user.is_authenticated%}
-                        {% if request.user.userdetails.id == userDetails.id%}
-                        <a href="/email">Mensajes</a>
-                        {% endif %}
-                        {% endif %}
                 </div>
             </div>
         </div>

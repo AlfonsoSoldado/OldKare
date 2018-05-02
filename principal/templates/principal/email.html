@@ -29,11 +29,13 @@
         </div>
         <div class="col-5">
                 {% if request.user.is_authenticated%}
-                <a href="/messages/inbox">Inbox</a>
+                <a class="btn btn-info" href="/messages/inbox">Inbox</a>
                 <br/>
-                <a href="/messages/sent">Outbox</a>
+                <hr/>
+                <a class="btn btn-info" href="/messages/sent">Outbox</a>
                 <br/>
-                <a href="/messages/write">Send message</a>
+                <hr/>
+                <a class="btn btn-success" href="/messages/write">Send message</a>
                 {% endif %}
         </div>
         <div class="col">
