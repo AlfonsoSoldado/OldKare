@@ -18,17 +18,34 @@ from django.urls import reverse_lazy, reverse
 from paypal.standard.forms import PayPalPaymentsForm
 from django.conf import settings
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def search(request):
     service_list = Service.objects.all()
     service_filter = ServiceFilter(request.GET, queryset=service_list)
-    return render(request, 'principal/service_list.html', {'filter': service_filter})
+    service_list = service_filter.qs
+    paginator = Paginator(service_list, 2)
+    
+    page = request.GET.get('page')
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+
+    args = {
+        "filter" : service_filter,
+        "services" : queryset,
+        "paginator" : paginator,
+    }
+    return render(request, "principal/service_list.html", args)
 
 class OldKareListView(LoginRequiredMixin, ListView):
     template_name = 'principal/OldKare.html'
     model = Service
     context_object_name = 'services'
-    paginate_by = 5
+    paginate_by = 2
 
     def get_queryset(self, *arg, **kwargs):
         return Service.objects.filter(author=self.request.user)

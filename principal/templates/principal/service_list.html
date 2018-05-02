@@ -10,8 +10,20 @@
     {{ filter.form.as_p }}
     <button type="submit" class="btn btn-primary">Search</button>
   </form>
-    {% for service in filter.qs %}
+    {% for service in services %}
       {% include 'principal/_OldKare_service.html' %}
     {% endfor %}
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+        <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{request.get_full_path}}&page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
 </div>
 {% endblock %}
