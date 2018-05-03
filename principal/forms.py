@@ -59,8 +59,8 @@ class OrderCreateForm(forms.ModelForm):
 
 class ServiceFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(lookup_expr='icontains', label='Name')
-    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gt', label="Min price")
-    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lt', label="Max price")
+    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gte', label="Min price")
+    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lte', label="Max price")
 
     class Meta:
         model = Service
