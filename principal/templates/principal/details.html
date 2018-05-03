@@ -60,6 +60,41 @@
           <p class="card-text">{{ service.category }}</p>
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Price: "%}</h6>
           <p class="card-text">{{ service.price }} €</p>
+          {% if request.user.id == service.author.id %}
+          {% if service.price >= 1 and service.price <= 5 %}
+          <p class="card-notification">Usted va a cobrar 0,5€</p>
+          {% endif %}
+          {% if service.price > 5 and service.price <= 10 %}
+          <p class="card-notification">Usted va a cobrar 1€</p>
+          {% endif %}
+          {% if service.price > 10 and service.price <= 15 %}
+          <p class="card-notification">Usted va a cobrar 1,5€</p>
+          {% endif %}
+          {% if service.price > 15 and service.price <= 20 %}
+          <p class="card-notification">Usted va a cobrar 2€</p>
+          {% endif %}
+          {% if service.price > 20 and service.price <= 25 %}
+          <p class="card-notification">Usted va a cobrar 2,5€</p>
+          {% endif %}
+          {% if service.price > 25 and service.price <= 30 %}
+          <p class="card-notification">Usted va a cobrar 3€</p>
+          {% endif %}
+          {% if service.price > 30 and service.price <= 35 %}
+          <p class="card-notification">Usted va a cobrar 3,5€</p>
+          {% endif %}
+          {% if service.price > 35 and service.price <= 40 %}
+          <p class="card-notification">Usted va a cobrar 4€</p>
+          {% endif %}
+          {% if service.price > 40 and service.price <= 45 %}
+          <p class="card-notification">Usted va a cobrar 4,5€</p>
+          {% endif %}
+          {% if service.price > 45 and service.price <= 50 %}
+          <p class="card-notification">Usted va a cobrar 5€</p>
+          {% endif %}
+          {% if service.price > 50 %}
+          <p class="card-notification">Usted va a cobrar {{service.priceOverFifty}}€</p>
+          {% endif %}
+          {% endif %}
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>
           {% if service.avaliability == 0 %}
           <p class="card-text">No</p>

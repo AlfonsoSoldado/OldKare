@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
+import decimal
 
 class Feedback(models.Model):
     rate = models.PositiveIntegerField(verbose_name=_('Rate'), validators=[MaxValueValidator(5)])
@@ -32,6 +33,7 @@ class Service(models.Model):
     offerer = models.ManyToManyField(User, related_name="offerer", blank=True, verbose_name=_('Offerers'))
     feedback = models.ManyToManyField(Feedback)
 
+
     def __str__(self):
         return f'{self.name}'
 
@@ -40,6 +42,10 @@ class Service(models.Model):
 
     def get_absolute_url(self):
         return u'/services/all'
+
+    def priceOverFifty(self):
+        res = decimal.Decimal(self.price) * decimal.Decimal(.8)
+        return "{0:.2f}".format(res)
 
 class UserDetails(models.Model):
     GENDER_CHOICES = (
