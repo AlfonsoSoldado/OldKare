@@ -450,7 +450,7 @@ msgstr "Historial de pedidos"
 
 #: .\OldKare\principal\templates\principal\email.html:36
 msgid "Inbox"
-msgstr "Bandeja de entrada"
+msgstr "Entrada"
 
 #: .\OldKare\principal\templates\principal\email.html:37
 msgid "Archives"
@@ -471,3 +471,19 @@ msgstr "Enviar mensaje"
 #: .\OldKare\principal\templates\principal\_OldKare_service.html:33
 msgid "Contact Offerer"
 msgstr "Contactar con ofertante"
+
+#: .\OldKare\principal\templates\registration\login.html:17
+msgid "Not registered yet? What are you waiting for!"
+msgstr "¿No te has registrado todavía? ¡A qué esperas!"
+
+#: .\OldKare\principal\templates\registration\signup.html:7
+msgid "Signup"
+msgstr "Registro"
+
+#: .\OldKare\principal\forms.py:9
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: .\OldKare\principal\forms.py:9
+msgid "Surname"
+msgstr "Apellidos"
