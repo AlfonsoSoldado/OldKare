@@ -64,9 +64,9 @@
         {% else %}
         <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">{% trans "Profile"%}</button>
         {% endif %}
-        <button type="button" class="btn btn-outline-secondary" onclick="window.location='{% url 'logout' %}'">Logout</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="window.location='{% url 'logout' %}'">{% trans "Logout"%}</button>
         {% else %}
-        <button class="btn btn-outline-light" onclick="window.location='{% url 'login' %}'">Login</button>
+        <button class="btn btn-outline-light" onclick="window.location='{% url 'login' %}'">{% trans "Login"%}</button>
         {% endif %}
        
       </ul>

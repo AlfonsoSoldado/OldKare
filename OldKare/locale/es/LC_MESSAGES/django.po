@@ -430,8 +430,44 @@ msgstr "Precio máximo"
 
 #: .\OldKare\principal\templates\principal\details.html:65
 msgid "Oldkare is taking: "
-msgstr "Oldkare se lleva: "
+msgstr "Comisión OldKare: "
 
 #: .\OldKare\principal\templates\principal\details.html:109
 msgid "Contact admin"
 msgstr "Contactar con el administrador"
+
+#: .\OldKare\principal\templates\principal\base.html:69
+msgid "Login"
+msgstr "Loguearse"
+
+#: .\OldKare\principal\templates\principal\base.html:67
+msgid "Logout"
+msgstr "Desloguearse"
+
+#: .\OldKare\principal\templates\principal\OldKare.html:15
+msgid "Order history"
+msgstr "Historial de pedidos"
+
+#: .\OldKare\principal\templates\principal\email.html:36
+msgid "Inbox"
+msgstr "Bandeja de entrada"
+
+#: .\OldKare\principal\templates\principal\email.html:37
+msgid "Archives"
+msgstr "Archivados"
+
+#: .\OldKare\principal\templates\principal\email.html:38
+msgid "Outbox"
+msgstr "Enviados"
+
+#: .\OldKare\principal\templates\principal\email.html:39
+msgid "Trashbox"
+msgstr "Papelera"
+
+#: .\OldKare\principal\templates\principal\email.html:42
+msgid "Send message"
+msgstr "Enviar mensaje"
+
+#: .\OldKare\principal\templates\principal\_OldKare_service.html:33
+msgid "Contact Offerer"
+msgstr "Contactar con ofertante"
