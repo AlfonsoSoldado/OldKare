@@ -29,7 +29,7 @@
           <p class="card-text">Si</p>
           {% endif %}
           <button onclick="window.location='{% url 'details' pk=service.id %}'" class="btn btn-primary">{% trans "See details"%}</button>
-          {% if service.solicitante.id == request.user.id  %}
+          {% if service.solicitante.id == request.user.id and request.user.is_authenticated %}
           <a class="btn btn-success" href="/messages/write/{{service.author.username}}">Contact Offerer</a>
           {% endif %}
         </div>
