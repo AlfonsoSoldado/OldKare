@@ -29,7 +29,9 @@
                     {% if request.user.userdetails.id == userDetails.id%}
                     <button class="btn btn-outline-success" onclick="window.location='{% url 'updateUserDetails' pk=userDetails.id %}'">{% trans "Edit details"%}</button>
                     {% if request.user.userdetails.id == userDetails.id%}
+                    {% if not userDetails.user.curriculum%}
                     <button class="btn btn-outline-success" onclick="window.location='{% url 'addCurriculum' %}'">{% trans "Add curriculum"%}</button>
+                    {% endif %}
                     {% endif %}
                     {% endif %}
                 </div>

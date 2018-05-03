@@ -82,7 +82,7 @@ class Curriculum(models.Model):
         return f'{self.user.username}'
 
     def get_absolute_url(self):
-        return u'/curriculum'
+        return u'/curriculum/'+str(self.id)
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50, verbose_name=_('First name'))
