@@ -28,14 +28,15 @@ in the INSTALLED_APPS setting.
 </div>{% endblock pm_by_modes %}
 <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
 {% block pm_form_buttons %}<span id="pm_buttons">
-{% block pm_delete_button %}<button type="submit" class="pm_btn pm_btn-delete" onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>{% endblock %}
-{% block pm_archive_button %}<button type="submit" class="pm_btn pm_btn-archive" onclick="this.form.action='{% url 'postman:archive' %}'">{% trans "Archive" %}</button>{% endblock %}
-{% block pm_undelete_button %}<button type="submit" class="pm_btn pm_btn-undelete" onclick="this.form.action='{% url 'postman:undelete' %}'">{% trans "Undelete" %}</button>{% endblock %}
-{% block pm_read_button %}<button type="submit" class="pm_btn pm_btn-read" onclick="this.form.action='{% url 'postman:mark-read' %}'">{% trans "Mark as read" %}</button>{% endblock %}
-{% block pm_unread_button %}<button type="submit" class="pm_btn pm_btn-unread" onclick="this.form.action='{% url 'postman:mark-unread' %}'">{% trans "Mark as unread" %}</button>{% endblock %}
+{% block pm_delete_button %}<button type="submit" class="btn btn-danger" onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>{% endblock %}
+{% block pm_archive_button %}<button type="submit" class="btn btn-warning" onclick="this.form.action='{% url 'postman:archive' %}'">{% trans "Archive" %}</button>{% endblock %}
+{% block pm_undelete_button %}<button type="submit" class="btn btn-primary" onclick="this.form.action='{% url 'postman:undelete' %}'">{% trans "Undelete" %}</button>{% endblock %}
+{% block pm_read_button %}<button type="submit" class="btn btn-success" onclick="this.form.action='{% url 'postman:mark-read' %}'">{% trans "Mark as read" %}</button>{% endblock %}
+{% block pm_unread_button %}<button type="submit" class="btn btn-info" onclick="this.form.action='{% url 'postman:mark-unread' %}'">{% trans "Mark as unread" %}</button>{% endblock %}
 </span>
 <br/>
 <br/>{% endblock %}
+
 <table id="pm_messages">
  <thead>
   <tr>
@@ -48,7 +49,10 @@ in the INSTALLED_APPS setting.
  </thead>
  <tbody>{% for message in pm_messages %}
   <tr>
-   <td><input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} /></td>
+    <td> <div class="form-check checkbox-teal">
+            <input type="checkbox" class="form-check-input" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %}   id="{{message.pk}}">
+            <label class="form-check" for="{{message.pk}}"> - </label>
+        </div></td>
 {% block pm_sender_cell %}   <td>{{ message.obfuscated_sender|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
 {% block pm_recipient_cell %}   <td>{{ message.obfuscated_recipient|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
    <td>{% if message.is_new %}<strong>{% endif %}{% if message.is_replied %}<em>{% endif %}

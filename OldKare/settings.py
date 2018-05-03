@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
 POSTMAN_AUTO_MODERATE_AS = True
 POSTMAN_QUICKREPLY_QUOTE_BODY = True
+POSTMAN_DISALLOW_ANONYMOUS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
