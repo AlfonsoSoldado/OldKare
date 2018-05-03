@@ -76,11 +76,11 @@
           <button class="btn btn-outline-danger" onclick="window.location='{% url 'deleteService' pk=service.id %}'">{% trans "Delete service"%}</button>
           <br/>
           <br/>
+          {% endif %}
           {% if service.author.userdetails and request.user in service.offerer.all %}
           <button class="btn btn-warning" onclick="window.location='{% url 'addFeedback' pk=service.id %}'">{% trans "Publish feedback"%}</button>
           {% endif %}
           <button class="btn btn-outline-success" onclick="window.location='{% url 'feedback' pk=service.id %}'">Feedbacks</button>
-          {% endif %}
         </div>
         <div class="col">
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>
