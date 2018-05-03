@@ -232,8 +232,8 @@ msgid "Price: "
 msgstr "Precio: "
 
 #: .\OldKare\principal\templates\principal\_OldKare_service.html:18
-msgid "See details: "
-msgstr "Ver detalles: "
+msgid "See details"
+msgstr "Ver detalles"
 
 #: .\OldKare\principal\templates\principal\_OldKare_service.html:21
 #: .\OldKare\principal\templates\principal\details.html:35
@@ -286,7 +286,7 @@ msgid "Pay"
 msgstr "Pagar"
 
 #: .\OldKare\principal\templates\principal\addFeedbackForm.html:22
-#: .\OldKare\principal\templates\principal\userDetailsForm.html:28
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:43
 #: .\OldKare\principal\templates\principal\updateCurriculumForm.html:22
 msgid "Save"
 msgstr "Guardar"
@@ -396,7 +396,22 @@ msgstr "No hay ningún feedback por ahora"
 msgid "You do not have access to this page!"
 msgstr "¡No tienes acceos a esta página!"
 
-
 #: .\OldKare\principal\templates\principal\base.html:117
 msgid "Join us"
 msgstr "Únete"
+
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:33
+msgid "Postal address: "
+msgstr "Domicilio: "
+
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:35
+msgid "Gender: "
+msgstr "Género: "
+
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:39
+msgid "Photo: "
+msgstr "Foto: "
+
+#: .\OldKare\principal\templates\principal\userDetailsForm.html:41
+msgid "Social references: "
+msgstr "Redes sociales: "
