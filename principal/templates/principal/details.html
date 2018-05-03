@@ -105,13 +105,8 @@
           {% for o in service.offerer.all %}
           <p class="card-text">{{ o.username }}</p>
           {% endfor %} {% endif %}
-<<<<<<< HEAD
-          {% if service.solicitante.id == request.user.id  %}
-          <a class="btn btn-success" href="/messages/write/admin">{% trans "Contact admin"%}</a>
-=======
           {% if service.solicitante.id == request.user.id  and request.user.is_authenticated %}
-          <a class="btn btn-success" href="/messages/write/admin">Contact admin</a>
->>>>>>> 78d044687ffe36b94fa0a488614f4b82964b052d
+          <a class="btn btn-success" href="/messages/write/admin">{% trans "Contact admin"%}</a>
           {% endif %}
         </div>
         <div id="share-buttons">
