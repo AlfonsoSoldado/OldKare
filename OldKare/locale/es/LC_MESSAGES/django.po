@@ -427,3 +427,11 @@ msgstr "Precio mínimo"
 #: .\OldKare\principal\forms.py:63
 msgid "Max price"
 msgstr "Precio máximo"
+
+#: .\OldKare\principal\templates\principal\details.html:65
+msgid "Oldkare is taking: "
+msgstr "Oldkare se lleva: "
+
+#: .\OldKare\principal\templates\principal\details.html:109
+msgid "Contact admin"
+msgstr "Contactar con el administrador"
