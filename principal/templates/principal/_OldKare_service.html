@@ -29,6 +29,9 @@
           <p class="card-text">Si</p>
           {% endif %}
           <button onclick="window.location='{% url 'details' pk=service.id %}'" class="btn btn-primary">{% trans "See details"%}</button>
+          {% if service.solicitante.id == request.user.id  %}
+          <a class="btn btn-success" href="/messages/write/{{service.author.username}}">Contact Offerer</a>
+          {% endif %}
         </div>
         <div class="col order-1">
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Publication date: "%}</h6>

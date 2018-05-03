@@ -315,6 +315,7 @@ def order_done(request):
     
     service.avaliability = 0
     service.offerer.add(solicitante)
+    service.solicitante = solicitante
     service.save()
     return HttpResponseRedirect('/services/requested')
 

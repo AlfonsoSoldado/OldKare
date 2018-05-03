@@ -29,6 +29,7 @@ class Service(models.Model):
     price = models.DecimalField(verbose_name=_('Price'), max_digits=20, decimal_places=2)
     avaliability =  models.BooleanField(default=1)
     category = models.CharField(verbose_name=_('Category'), max_length=50, choices=CATEGORY_CHOICES)
+    solicitante = models.ForeignKey(User, on_delete=models.CASCADE,null=True, related_name='solicitante')
     offerer = models.ManyToManyField(User, related_name="offerer", blank=True, verbose_name=_('Offerers'))
     feedback = models.ManyToManyField(Feedback)
 
