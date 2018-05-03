@@ -20,7 +20,7 @@
       <br/>
       <div class="row">
         <div class="col">
-            {% if service.author.userdetails and request.user.is_authenticated and service.avaliability != 0%}
+            {% if service.author.userdetails and request.user.is_authenticated and service.avaliability != 0 and service.author.id != request.user.id%}
             <center><button class="btn btn-primary" onclick="window.location='{% url 'payService' pk=service.id %}'">{% trans "Request service"%}</button></center>
             <br/>
             {% endif %}
