@@ -57,8 +57,9 @@
           <a href=""></a>
         </li>
         {% if request.user.is_authenticated%}
+        {{ request.user.username }}
         {% if request.user.userdetails%}
-        <a>{{ request.user.username }}</a>
+        
         <button type="button" class="btn btn-outline-primary" onclick="window.location='{% url 'userDetails' pk=user.userdetails.id%}'">{% trans "Profile"%}</button>
         {% else %}
         <button type="button" class="btn btn-outline-light" onclick="window.location='{% url 'addUserDetails' %}'">{% trans "Profile"%}</button>
