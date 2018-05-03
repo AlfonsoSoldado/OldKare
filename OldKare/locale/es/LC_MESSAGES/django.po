@@ -415,3 +415,15 @@ msgstr "Foto: "
 #: .\OldKare\principal\templates\principal\userDetailsForm.html:41
 msgid "Social references: "
 msgstr "Redes sociales: "
+
+#: .\OldKare\principal\templates\principal\userDetailsView.html:39
+msgid "Messages"
+msgstr "Mensajes"
+
+#: .\OldKare\principal\forms.py:63
+msgid "Min price"
+msgstr "Precio mínimo"
+
+#: .\OldKare\principal\forms.py:63
+msgid "Max price"
+msgstr "Precio máximo"

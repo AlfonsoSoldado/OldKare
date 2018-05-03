@@ -128,7 +128,12 @@
         </div>
       </div>
       <ul class="copyright">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if not LANGUAGE_CODE == 'en' %}
         <li>&copy; OldKare. All rights reserved. | <a href="/terminos-y-condiciones">{% trans "Terms and conditions of use"%}</a></li>
+        {% else %}
+        <li>&copy; OldKare. All rights reserved. | <a href="/terms-and-conditions">{% trans "Terms and conditions of use"%}</a></li>
+        {% endif %}
       </ul>
     </div>
   </footer>

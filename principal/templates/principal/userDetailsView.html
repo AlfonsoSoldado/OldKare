@@ -36,7 +36,7 @@
                 <div class="col order-12">
                         {% if request.user.is_authenticated%}
                         {% if request.user.userdetails.id == userDetails.id%}
-                        <a class="btn btn-info" href="/email">Mensajes</a>
+                        <a class="btn btn-info" href="/email">{% trans "Messages"%}</a>
                         {% endif %}
                         {% endif %}
                 </div>
