@@ -67,8 +67,9 @@ class UserDetails(models.Model):
 
     def __str__(self):
         return f'{self.user.username}'
+
     def get_absolute_url(self):
-        return u'/services'
+        return u'/userdetails/'+str(self.id)
 
 
 class Curriculum(models.Model):
