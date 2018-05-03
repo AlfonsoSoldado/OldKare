@@ -1189,4 +1189,6 @@
 			background-color: #ffffff;
 		}
 
-		
+		.card-notification {
+			color: red;
+		}

@@ -7,8 +7,13 @@
 <div class="container">
   <br />
   <div class="row">
-    <div class="col-lg-4"> 
+    <div class="col-lg-4">
+      {% if request.get_full_path == "/es/services" or request.get_full_path == "/en/services"%} 
       <h1>{% trans "My services"%}</h1>
+      {%endif%}
+      {% if request.get_full_path == "/es/services/requested" or request.get_full_path == "/en/services/requested"%} 
+      <h1>{% trans "Order history"%}</h1>
+      {%endif%}
     </div>
    <div class="col-lg-8">
       {% if request.user.is_authenticated%}

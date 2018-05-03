@@ -3,6 +3,7 @@ from django.contrib.auth.models import User   # fill in custom user info then sa
 from django.contrib.auth.forms import UserCreationForm 
 from .models import UserDetails, Service, Curriculum, Feedback, Order
 import django_filters
+from django.utils.translation import gettext_lazy as _
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = "Nombre de usuario")
@@ -58,9 +59,9 @@ class OrderCreateForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email', 'address', 'postal_code', 'city','service']
 
 class ServiceFilter(django_filters.FilterSet):
-    name = django_filters.CharFilter(lookup_expr='icontains', label='Name')
-    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gte', label="Min price")
-    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lte', label="Max price")
+    name = django_filters.CharFilter(lookup_expr='icontains', label=_('Name'))
+    price__gt = django_filters.NumberFilter(name='price', lookup_expr='gte', label=_("Min price"))
+    price__lt = django_filters.NumberFilter(name='price', lookup_expr='lte', label=_("Max price"))
 
     class Meta:
         model = Service
