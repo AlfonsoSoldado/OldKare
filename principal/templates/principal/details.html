@@ -105,7 +105,7 @@
           {% for o in service.offerer.all %}
           <p class="card-text">{{ o.username }}</p>
           {% endfor %} {% endif %}
-          {% if service.solicitante.id == request.user.id  %}
+          {% if service.solicitante.id == request.user.id  and request.user.is_authenticated %}
           <a class="btn btn-success" href="/messages/write/admin">Contact admin</a>
           {% endif %}
         </div>
