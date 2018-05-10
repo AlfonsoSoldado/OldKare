@@ -91,37 +91,37 @@
           <p class="card-text">{{ service.price }} €</p>
           {% if request.user.id == service.author.id %}
           {% if service.price >= 1 and service.price <= 5 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 0,5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 0,5€</p>
           {% endif %}
           {% if service.price > 5 and service.price <= 10 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 1€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 1€</p>
           {% endif %}
           {% if service.price > 10 and service.price <= 15 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 1,5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 1,5€</p>
           {% endif %}
           {% if service.price > 15 and service.price <= 20 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 2€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 2€</p>
           {% endif %}
           {% if service.price > 20 and service.price <= 25 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 2,5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 2,5€</p>
           {% endif %}
           {% if service.price > 25 and service.price <= 30 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 3€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 3€</p>
           {% endif %}
           {% if service.price > 30 and service.price <= 35 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 3,5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 3,5€</p>
           {% endif %}
           {% if service.price > 35 and service.price <= 40 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 4€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 4€</p>
           {% endif %}
           {% if service.price > 40 and service.price <= 45 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 4,5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 4,5€</p>
           {% endif %}
           {% if service.price > 45 and service.price <= 50 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} 5€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} 5€</p>
           {% endif %}
           {% if service.price > 50 %}
-          <p class="card-notification">{% trans "Oldkare is taking: "%} {{service.priceOverFifty}}€</p>
+          <p class="card-notification">{% trans "Comission OldKare: "%} {{service.priceOverFifty}}€</p>
           {% endif %}
           {% endif %}
           <h6 class="card-subtitle mb-2 text-muted">{% trans "Avaliability: "%}</h6>

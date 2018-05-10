@@ -10,7 +10,8 @@
     {% csrf_token %}
     {% for field in form %}
       {{ field.errors }}
-      <input type="{% if 'password' in field.name %}password{% else %}input{% endif %}" placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control" />
+      <label>{{field.label}}</label>
+      <input type="{% if 'password' in field.name %}password{% else %}input{% endif %}" name="{{ field.name }}" class="form-control" />
       <br/>
     {% endfor %}
   </div>

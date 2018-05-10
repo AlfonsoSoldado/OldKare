@@ -429,7 +429,7 @@ msgid "Max price"
 msgstr "Precio máximo"
 
 #: .\OldKare\principal\templates\principal\details.html:65
-msgid "Oldkare is taking: "
+msgid "Comission OldKare: "
 msgstr "Comisión OldKare: "
 
 #: .\OldKare\principal\templates\principal\details.html:109
