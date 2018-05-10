@@ -6,10 +6,10 @@ import django_filters
 from django.utils.translation import gettext_lazy as _
 
 class MyRegistrationForm(UserCreationForm):
-    username = forms.CharField(label = "Nombre de usuario")
+    username = forms.CharField(label = _("Username"))
     email = forms.EmailField(label = "Email")
-    first_name = forms.CharField(label = "Nombre")
-    last_name = forms.CharField(label = "Apellidos")
+    first_name = forms.CharField(label = _("Name"))
+    last_name = forms.CharField(label = _("Surname"))
 
     class Meta:
         model = User

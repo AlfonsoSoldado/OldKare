@@ -1,9 +1,9 @@
-{% extends 'principal/base.html' %} {% block content %}
+{% extends 'principal/base.html' %} {% block content %} {% load i18n %}
 <br/>
 <br/>
 <br/>
 <div class="page-center container">
-  <h1>Iniciar sesión</h1>
+  <h1>{% trans "Login"%}</h1>
   <form method="POST">
     <div class="form-container">
       <div class="form-class">
@@ -11,10 +11,10 @@
       </div>
     </div>
     <br />
-    <button type="submit" class="btn btn-outline-success">Iniciar sesión</button>
+    <button type="submit" class="btn btn-outline-success">{% trans "Login"%}</button>
     <br />
     <br />
-    <a href="/signup">¿No te has registrado todavía? ¡A qué esperas!</a>
+    <a href="/signup">{% trans "Not registered yet? What are you waiting for!"%}</a>
     <br/>
     <br/>
     <br/>

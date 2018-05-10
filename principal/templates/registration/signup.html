@@ -1,10 +1,10 @@
-{% extends 'principal/base.html' %}
+{% extends 'principal/base.html' %} {% load i18n %}
 {% block content %}
 <br/>
 <br/>
 <br/>
 <div class="page-center container">
-  <h1>Registro</h1>
+  <h1>{% trans "Signup"%}</h1>
   <div class="card card-service">
   <form method="POST">
     {% csrf_token %}
@@ -16,7 +16,7 @@
     {% endfor %}
   </div>
     <br />
-    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <button type="submit" class="btn btn-primary">{% trans "Register"%}</button>
     <br />
   </form>
 </div>
