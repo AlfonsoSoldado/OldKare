@@ -27,7 +27,7 @@ SECRET_KEY = ')hemo81z&(8y&1ux*l%d00f0fwsy2o832rlcbvpsj6jw@#_m!y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['oldkare.tk', 'oldkareispp.pythonanywhere.com', '127.0.0.1']
 
 LOGIN_URL = '/login'
 
