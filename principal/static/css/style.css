@@ -1143,6 +1143,10 @@
 			font-family: arial;
 			background-color: #F6F6E9;
 		}
+
+		.profile-card h1{
+			font-size: 20px;
+		}
 		  
 		.title {
 			color: grey;
