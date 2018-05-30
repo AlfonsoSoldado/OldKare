@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import UserDetails, Service, Curriculum, Feedback, Order
 import django_filters
 from django.utils.translation import gettext_lazy as _
+from localflavor.es.forms import ESIdentityCardNumberField
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label = _("Username"))
@@ -38,7 +39,7 @@ class ServiceForm(forms.ModelForm):
 class UserDetailsForm(forms.ModelForm):
     class Meta:
         model = UserDetails
-        fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences')
+        fields = ('birthday', 'phone', 'postalAddress', 'gender', 'occupation', 'photo', 'socialReferences', 'dni')
         widgets = {
             'birthday': DateInput(),
         } 

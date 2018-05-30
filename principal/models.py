@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 import decimal
+from localflavor.es.forms import ESIdentityCardNumberField
 
 class Feedback(models.Model):
     rate = models.PositiveIntegerField(verbose_name=_('Rate'), validators=[MaxValueValidator(5)])
@@ -55,6 +56,7 @@ class UserDetails(models.Model):
         ('O', 'Otro'),
     )
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="El número debe seguir el siguiente patrón: '+999999999'. Máximo 15 dígitos.")
+    dni_regex = RegexValidator(regex=r'^[0-9]{8,8}[A-Za-z]$', message="DNI inválido")
 
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, verbose_name=_('User'))
     birthday = models.DateField(verbose_name=_('Birthday'))
@@ -64,6 +66,8 @@ class UserDetails(models.Model):
     occupation = models.CharField(max_length=100, verbose_name=_('Occupation'))
     photo = models.URLField(max_length=600, verbose_name=_('Photo'))
     socialReferences = models.CharField(null=True,blank=True,max_length=600, verbose_name=_('Social references'))
+    dni = models.CharField(validators=[dni_regex], max_length=9)
+    
 
     def __str__(self):
         return f'{self.user.username}'

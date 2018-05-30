@@ -38,6 +38,8 @@
               <br/>
               <h6 class="card-subtitle mb-2 text-muted">{% trans "Social references: "%} {% csrf_token %} {{ form.socialReferences }} </h6>
               <br/>
+              <h6 class="card-subtitle mb-2 text-muted">DNI: {% csrf_token %} {{ form.dni }} </h6>
+              <br/>
               <button type="submit" class="btn btn-primary">{% trans "Save"%}</button>
           </div>
       </div>

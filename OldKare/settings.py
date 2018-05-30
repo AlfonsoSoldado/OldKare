@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')hemo81z&(8y&1ux*l%d00f0fwsy2o832rlcbvpsj6jw@#_m!y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['oldkare.tk', 'oldkareispp.pythonanywhere.com', '127.0.0.1']
 

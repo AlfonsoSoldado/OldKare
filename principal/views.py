@@ -231,6 +231,7 @@ def addUserDetails(request):
             occupation = form.cleaned_data['occupation']
             photo = form.cleaned_data['photo']
             socialReferences = form.cleaned_data['socialReferences']
+            dni = form.cleaned_data['dni']
 
             UserDetails.objects.create(
                 user=request.user,
@@ -240,7 +241,8 @@ def addUserDetails(request):
                 gender=gender,
                 occupation=occupation,
                 photo=photo,
-                socialReferences=socialReferences
+                socialReferences=socialReferences,
+                dni=dni
             ).save()
 
             return HttpResponseRedirect('/')
